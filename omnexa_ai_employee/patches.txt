@@ -1,0 +1,4 @@
+[pre_model_sync]
+
+[post_model_sync]
+omnexa_ai_employee.patches.v1_0.seed_default_ai_agents

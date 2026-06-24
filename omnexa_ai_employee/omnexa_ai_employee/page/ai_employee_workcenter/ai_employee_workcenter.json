@@ -1,0 +1,12 @@
+{
+	"doctype": "Page",
+	"module": "Omnexa AI Employee",
+	"name": "ai-employee-workcenter",
+	"page_name": "ai-employee-workcenter",
+	"standard": "Yes",
+	"title": "AI Employee Workcenter",
+	"roles": [
+		{"role": "System Manager"},
+		{"role": "AI Employee User"}
+	]
+}

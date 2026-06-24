@@ -1,0 +1,43 @@
+{
+	"actions": [],
+	"creation": "2026-06-24 18:00:00.000000",
+	"doctype": "DocType",
+	"editable_grid": 1,
+	"engine": "InnoDB",
+	"field_order": [
+		"enabled",
+		"default_routing_strategy",
+		"default_route_target",
+		"audit_on_startup",
+		"enable_voice",
+		"enable_ocr",
+		"enable_rag",
+		"escalation_email"
+	],
+	"fields": [
+		{"fieldname": "enabled", "fieldtype": "Check", "label": "Enabled", "default": "1"},
+		{
+			"fieldname": "default_routing_strategy",
+			"fieldtype": "Select",
+			"label": "Default Routing Strategy",
+			"options": "Hybrid\nLocal Only\nCloud Only",
+			"default": "Hybrid"
+		},
+		{
+			"fieldname": "default_route_target",
+			"fieldtype": "Select",
+			"label": "Default Route Target",
+			"options": "Local\nCloud",
+			"default": "Local"
+		},
+		{"fieldname": "audit_on_startup", "fieldtype": "Check", "label": "Run Ecosystem Audit on Migrate", "default": "1"},
+		{"fieldname": "enable_voice", "fieldtype": "Check", "label": "Enable Voice AI", "default": "1"},
+		{"fieldname": "enable_ocr", "fieldtype": "Check", "label": "Enable OCR", "default": "1"},
+		{"fieldname": "enable_rag", "fieldtype": "Check", "label": "Enable RAG / Vector Search", "default": "1"},
+		{"fieldname": "escalation_email", "fieldtype": "Data", "label": "Escalation Email"}
+	],
+	"issingle": 1,
+	"module": "Omnexa AI Employee",
+	"name": "AI Employee Settings",
+	"permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

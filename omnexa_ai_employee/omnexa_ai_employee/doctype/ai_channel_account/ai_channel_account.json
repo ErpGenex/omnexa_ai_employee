@@ -1,0 +1,27 @@
+{
+	"actions": [],
+	"autoname": "field:account_name",
+	"creation": "2026-06-24 18:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": ["enabled", "account_name", "channel_type", "phone_number", "webhook_url", "api_key", "default_agent"],
+	"fields": [
+		{"fieldname": "enabled", "fieldtype": "Check", "label": "Enabled", "default": "1"},
+		{"fieldname": "account_name", "fieldtype": "Data", "label": "Account Name", "reqd": 1, "unique": 1},
+		{
+			"fieldname": "channel_type",
+			"fieldtype": "Select",
+			"label": "Channel",
+			"options": "WhatsApp\nTelegram\nSMS\nEmail\nWeb Chat\nFacebook Messenger\nInstagram",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{"fieldname": "phone_number", "fieldtype": "Data", "label": "Phone / Handle"},
+		{"fieldname": "webhook_url", "fieldtype": "Data", "label": "Webhook URL"},
+		{"fieldname": "api_key", "fieldtype": "Password", "label": "API Key"},
+		{"fieldname": "default_agent", "fieldtype": "Link", "label": "Default Agent", "options": "AI Agent"}
+	],
+	"module": "Omnexa AI Employee",
+	"name": "AI Channel Account",
+	"permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}
