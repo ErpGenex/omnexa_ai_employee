@@ -2,3 +2,6 @@
 
 [post_model_sync]
 omnexa_ai_employee.patches.v1_0.seed_default_ai_agents
+omnexa_ai_employee.patches.v1_0.seed_ollama_provider
+omnexa_ai_employee.patches.v1_0.seed_whatsapp_channel
+omnexa_ai_employee.patches.v1_0.sync_ai_employee_workspace

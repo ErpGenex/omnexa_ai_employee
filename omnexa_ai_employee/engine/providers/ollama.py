@@ -9,13 +9,14 @@ import frappe
 import requests
 
 from omnexa_ai_employee.engine.providers.base import AICompletionResult, BaseAIProvider
+from omnexa_ai_employee.engine.providers.ollama_setup import resolve_ollama_base_url
 
 
 class OllamaProvider(BaseAIProvider):
 	provider_type = "Ollama"
 
 	def complete(self, *, messages: list[dict], temperature: float | None = None, max_tokens: int | None = None) -> AICompletionResult:
-		base_url = (self.doc.base_url or "http://127.0.0.1:11434").rstrip("/")
+		base_url = resolve_ollama_base_url(self.doc.base_url)
 		model = self.doc.model_name or "llama3"
 		payload = {
 			"model": model,
@@ -34,7 +35,7 @@ class OllamaProvider(BaseAIProvider):
 		return AICompletionResult(text=text.strip(), provider=self.doc.name, model=model, route="Local", raw=data)
 
 	def health_check(self) -> dict:
-		base_url = (self.doc.base_url or "http://127.0.0.1:11434").rstrip("/")
+		base_url = resolve_ollama_base_url(self.doc.base_url)
 		try:
 			resp = requests.get(f"{base_url}/api/tags", timeout=5)
 			resp.raise_for_status()

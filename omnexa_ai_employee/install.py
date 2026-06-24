@@ -96,14 +96,54 @@ def bootstrap_defaults() -> dict:
 	return stats
 
 
+def bootstrap_ollama() -> dict:
+	from omnexa_ai_employee.engine.providers.ollama_setup import bootstrap_ollama_provider
+
+	return bootstrap_ollama_provider(save=True)
+
+
+def bootstrap_whatsapp_channel() -> dict:
+	"""Ensure a template WhatsApp channel account exists (configure tokens in Desk)."""
+	if frappe.db.exists("AI Channel Account", "whatsapp-main"):
+		doc = frappe.get_doc("AI Channel Account", "whatsapp-main")
+		if not doc.default_agent:
+			doc.default_agent = frappe.db.get_value("AI Agent", {"enabled": 1, "agent_code": "support"}, "name") or frappe.db.get_value("AI Agent", {"enabled": 1}, "name")
+			doc.save(ignore_permissions=True)
+		return {"created": False, "name": doc.name, "webhook_url": doc.webhook_url}
+
+	agent = frappe.db.get_value("AI Agent", {"enabled": 1, "agent_code": "support"}, "name") or frappe.db.get_value("AI Agent", {"enabled": 1}, "name")
+	doc = frappe.get_doc(
+		{
+			"doctype": "AI Channel Account",
+			"account_name": "whatsapp-main",
+			"channel_type": "WhatsApp",
+			"enabled": 1,
+			"default_agent": agent,
+			"verify_token": frappe.generate_hash(length=24),
+			"api_version": "v21.0",
+		}
+	)
+	doc.insert(ignore_permissions=True)
+	return {"created": True, "name": doc.name, "webhook_url": doc.webhook_url, "verify_token": doc.verify_token}
+
+
 def after_install():
 	try:
 		bootstrap_defaults()
+		bootstrap_ollama()
+		bootstrap_whatsapp_channel()
 	except Exception:
 		frappe.log_error(frappe.get_traceback(), "AI Employee: after_install")
 
 
 def after_migrate():
+	try:
+		from omnexa_ai_employee.engine.providers.ollama_setup import bootstrap_ollama_provider
+
+		bootstrap_ollama_provider(save=True)
+		bootstrap_whatsapp_channel()
+	except Exception:
+		frappe.log_error(frappe.get_traceback(), "AI Employee: ollama bootstrap")
 	try:
 		from omnexa_ai_employee.workspace.ai_employee_workspace import sync_ai_employee_workspace
 

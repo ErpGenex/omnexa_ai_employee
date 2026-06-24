@@ -40,8 +40,13 @@
 			"reqd": 1
 		},
 		{"fieldname": "is_default", "fieldtype": "Check", "label": "Default for Route"},
-		{"fieldname": "base_url", "fieldtype": "Data", "label": "Base URL"},
-		{"fieldname": "model_name", "fieldtype": "Data", "label": "Model"},
+		{"fieldname": "base_url", "fieldtype": "Data", "label": "Base URL", "description": "For Ollama: models are auto-discovered when URL is set"},
+		{
+			"fieldname": "model_name",
+			"fieldtype": "Select",
+			"label": "Model",
+			"description": "Populated automatically from the provider URL"
+		},
 		{"fieldname": "api_key", "fieldtype": "Password", "label": "API Key"},
 		{"fieldname": "api_version", "fieldtype": "Data", "label": "API Version"},
 		{"fieldname": "temperature", "fieldtype": "Float", "label": "Temperature", "default": "0.2"},

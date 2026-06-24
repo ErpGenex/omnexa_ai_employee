@@ -10,6 +10,7 @@ import json
 import frappe
 from frappe.utils import now_datetime
 
+from omnexa_ai_employee.engine.actions.erp_tools import maybe_execute_erp_action
 from omnexa_ai_employee.engine.providers import get_provider_client
 from omnexa_ai_employee.engine.router import route_request
 
@@ -116,13 +117,24 @@ def process_chat(
 		result.text,
 		{"route": route, "provider": result.provider, "model": result.model},
 	)
+	action_note = maybe_execute_erp_action(
+		user_text=message,
+		agent_code=agent.name if agent else None,
+		customer=customer,
+		conversation=conv.name,
+	)
+	final_reply = result.text
+	if action_note:
+		final_reply = f"{result.text}\n\n{action_note}"
+		_append_message(conv.name, "System", action_note, {"erp_action": True})
 	conv.db_set({"status": "Open", "last_activity": now_datetime(), "last_provider": result.provider})
 	frappe.db.commit()
 
 	return {
 		"conversation": conv.name,
-		"reply": result.text,
+		"reply": final_reply,
 		"route": route,
 		"provider": result.provider,
 		"model": result.model,
+		"erp_action": action_note,
 	}
