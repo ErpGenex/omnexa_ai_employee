@@ -14,6 +14,29 @@ from omnexa_ai_employee.engine.providers.ollama_setup import bootstrap_ollama_pr
 from omnexa_ai_employee.engine.router import route_request
 
 
+def _verify_webhook_token(account_name: str | None = None) -> bool:
+	header_token = (
+		frappe.get_request_header("X-Omnexa-Webhook-Token")
+		or frappe.get_request_header("X-Verify-Token")
+		or ""
+	).strip()
+	if not header_token:
+		return False
+	account = account_name
+	if not account:
+		row = frappe.get_all(
+			"AI Channel Account",
+			filters={"enabled": 1, "channel_type": "WhatsApp"},
+			fields=["name"],
+			limit=1,
+		)
+		account = row[0].name if row else None
+	if not account:
+		return False
+	doc = frappe.get_doc("AI Channel Account", account, ignore_permissions=True)
+	return header_token == (doc.verify_token or "").strip()
+
+
 def _provider_health() -> list[dict]:
 	health = []
 	for row in list_enabled_providers():
@@ -128,7 +151,6 @@ def discover_provider_models(base_url: str, provider_type: str = "Ollama") -> di
 @frappe.whitelist(allow_guest=True, methods=["GET", "POST"])
 def whatsapp_webhook(account: str | None = None):
 	"""Meta WhatsApp webhook — GET verify, POST inbound messages."""
-	frappe.set_user("Administrator")
 	from omnexa_ai_employee.engine.channels.inbound import handle_inbound_message
 	from omnexa_ai_employee.engine.channels.whatsapp import parse_whatsapp_webhook_payload, verify_whatsapp_webhook
 
@@ -156,6 +178,9 @@ def whatsapp_webhook(account: str | None = None):
 			"hint": "Meta verification requires hub.mode=subscribe, hub.verify_token, hub.challenge",
 		}
 
+	if not _verify_webhook_token(account):
+		frappe.throw(_("Unauthorized webhook call"), frappe.PermissionError)
+	frappe.set_user("Administrator")
 	payload = frappe.request.get_json(silent=True) or {}
 	results = []
 	for msg in parse_whatsapp_webhook_payload(payload):
