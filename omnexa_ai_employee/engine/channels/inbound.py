@@ -8,6 +8,7 @@ from __future__ import annotations
 import frappe
 
 from omnexa_ai_employee.engine.channels.whatsapp import send_whatsapp_text
+from omnexa_ai_employee.engine.activities.registry import resolve_agent_for_message
 from omnexa_ai_employee.engine.orchestrator import process_chat
 
 
@@ -32,6 +33,7 @@ def handle_inbound_message(
 
 	account = _resolve_channel_account(channel, account_name)
 	agent_code = account.default_agent if account else None
+	agent_code = resolve_agent_for_message(text, agent_code)
 	customer = _resolve_customer(channel, sender_id, profile_name)
 
 	result = process_chat(

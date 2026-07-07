@@ -1,7 +1,7 @@
 app_name = "omnexa_ai_employee"
 app_title = "ErpGenEx — AI Employee"
 app_publisher = "ErpGenEx"
-app_description = "Autonomous AI employee for sales, support, healthcare, education, tourism, and finance"
+app_description = "Autonomous AI employee across all ERPGENEX business activities"
 app_email = "dev@erpgenex.com"
 app_license = "mit"
 

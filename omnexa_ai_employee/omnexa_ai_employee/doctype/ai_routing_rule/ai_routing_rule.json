@@ -22,7 +22,7 @@
 			"fieldname": "agent_role",
 			"fieldtype": "Select",
 			"label": "Agent Role (optional)",
-			"options": "\nSales\nCustomer Service\nHealthcare\nEducation\nTourism\nFinance"
+			"options": "\nSales\nCustomer Service\nHealthcare\nEducation\nTourism\nFinance\nTrading\nHR\nManufacturing\nProjects\nOperations\nAccounting\nAgriculture\nConstruction\nRestaurant\nLegal\nRisk"
 		},
 		{"fieldname": "match_keywords", "fieldtype": "Small Text", "label": "Match Keywords (comma-separated)"}
 	],

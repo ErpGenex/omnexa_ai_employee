@@ -8,6 +8,9 @@ from __future__ import annotations
 import frappe
 
 
+from omnexa_ai_employee.engine.activities.registry import get_installed_activities
+
+
 def run_ecosystem_audit() -> dict:
 	installed = set(frappe.get_installed_apps() or [])
 	core_apps = [
@@ -41,6 +44,7 @@ def run_ecosystem_audit() -> dict:
 		"installed_apps": len(installed),
 		"core_platform": {app: app in installed for app in core_apps},
 		"vertical_apps": {app: app in installed for app in vertical_samples if app in installed},
+		"activities": get_installed_activities(),
 		"doctype_count": doctype_count,
 		"whitelisted_api_count": whitelisted,
 		"ai_employee": {

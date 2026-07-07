@@ -6,6 +6,11 @@ from __future__ import annotations
 import frappe
 from frappe import _
 
+from omnexa_ai_employee.engine.activities.registry import (
+	get_installed_activities,
+	list_action_capabilities,
+	sync_activity_agents,
+)
 from omnexa_ai_employee.engine.audit.ecosystem_audit import run_ecosystem_audit
 from omnexa_ai_employee.engine.ocr.service import run_ocr
 from omnexa_ai_employee.engine.orchestrator import process_chat
@@ -74,6 +79,8 @@ def get_dashboard() -> dict:
 		),
 		"providers": list_enabled_providers(),
 		"provider_health": provider_health,
+		"activities": get_installed_activities(),
+		"erp_actions": list_action_capabilities(),
 		"ollama": ollama,
 		"audit_summary": audit,
 	}
@@ -104,6 +111,21 @@ def chat(message: str, agent_code: str | None = None, conversation: str | None =
 def preview_route(message: str, agent_code: str | None = None) -> dict:
 	role = frappe.db.get_value("AI Agent", agent_code, "agent_role") if agent_code else None
 	return route_request(user_text=message, agent_role=role)
+
+
+@frappe.whitelist()
+def list_activities() -> dict:
+	frappe.only_for(("System Manager", "AI Employee User"))
+	return {
+		"activities": get_installed_activities(),
+		"erp_actions": list_action_capabilities(),
+	}
+
+
+@frappe.whitelist()
+def sync_agents() -> dict:
+	frappe.only_for("System Manager")
+	return sync_activity_agents()
 
 
 @frappe.whitelist()

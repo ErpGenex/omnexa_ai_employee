@@ -11,6 +11,7 @@ import frappe
 from frappe.utils import now_datetime
 
 from omnexa_ai_employee.engine.actions.erp_tools import maybe_execute_erp_action
+from omnexa_ai_employee.engine.activities.registry import get_activity_context_prompt, resolve_agent_for_message
 from omnexa_ai_employee.engine.providers import get_provider_client
 from omnexa_ai_employee.engine.router import route_request
 
@@ -82,6 +83,7 @@ def process_chat(
 	if not _settings_enabled():
 		frappe.throw(frappe._("AI Employee is disabled in settings."))
 
+	agent_code = resolve_agent_for_message(message, agent_code)
 	agent = _agent_doc(agent_code)
 	conv = _conversation_doc(conversation, agent_code=agent.name if agent else None, channel=channel, customer=customer)
 	_append_message(conv.name, "User", message)
@@ -97,6 +99,7 @@ def process_chat(
 	messages = []
 	if agent and agent.system_prompt:
 		messages.append({"role": "system", "content": agent.system_prompt})
+	messages.append({"role": "system", "content": get_activity_context_prompt()})
 	if company:
 		messages.append({"role": "system", "content": f"Company context: {company}"})
 	messages.extend(_history_messages(conv.name))

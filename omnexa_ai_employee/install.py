@@ -127,9 +127,20 @@ def bootstrap_whatsapp_channel() -> dict:
 	return {"created": True, "name": doc.name, "webhook_url": doc.webhook_url, "verify_token": doc.verify_token}
 
 
+def sync_agents_from_install() -> dict:
+	try:
+		from omnexa_ai_employee.engine.activities.registry import sync_activity_agents
+
+		return sync_activity_agents()
+	except Exception:
+		frappe.log_error(frappe.get_traceback(), "AI Employee: sync activity agents")
+		return {"created": 0, "skipped": 0}
+
+
 def after_install():
 	try:
 		bootstrap_defaults()
+		sync_agents_from_install()
 		bootstrap_ollama()
 		bootstrap_whatsapp_channel()
 	except Exception:
@@ -144,6 +155,10 @@ def after_migrate():
 		bootstrap_whatsapp_channel()
 	except Exception:
 		frappe.log_error(frappe.get_traceback(), "AI Employee: ollama bootstrap")
+	try:
+		sync_agents_from_install()
+	except Exception:
+		frappe.log_error(frappe.get_traceback(), "AI Employee: sync activity agents")
 	try:
 		from omnexa_ai_employee.workspace.ai_employee_workspace import sync_ai_employee_workspace
 
