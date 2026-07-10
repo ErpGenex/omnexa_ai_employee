@@ -1,0 +1,41 @@
+{
+ "allow_roles": [
+  {
+   "role": "Desk User"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-06-24 15:44:44.771879",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "documentation_url": "https://frappe.io/framework",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-07-11 01:54:27.885799",
+ "modified_by": "Administrator",
+ "module": "Omnexa AI Employee",
+ "name": "ERPGENEX \u2014 AI Employee",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "ERPGENEX-WS-ai_employee-01-page-ai_employee_workcenter"
+  },
+  {
+   "step": "ERPGENEX-WS-ai_employee-02-ai_agent"
+  },
+  {
+   "step": "ERPGENEX-WS-ai_employee-03-ai_conversation"
+  },
+  {
+   "step": "ERPGENEX-WS-ai_employee-04-ai_provider"
+  },
+  {
+   "step": "ERPGENEX-WS-ai_employee-home"
+  }
+ ],
+ "subtitle": "Guided setup for this workspace.",
+ "success_message": "You are ready to work in AI Employee.",
+ "title": "AI Employee"
+}
