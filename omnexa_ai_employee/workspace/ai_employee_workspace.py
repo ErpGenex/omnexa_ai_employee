@@ -70,7 +70,8 @@ def _build_link_rows() -> list[dict[str, Any]]:
 		valid = [(t, to, label) for t, to, label in items if _link_exists(t, to)]
 		if not valid:
 			continue
-		rows.append({"label": section_label, "type": "Card Break", "link_type": "DocType"})
+		rows.append({"label": section_label, "type": "Card Break", "link_type": "DocType"
+	})
 		for link_type, link_to, label in valid:
 			key = (link_type, link_to)
 			if key in seen:
@@ -81,8 +82,8 @@ def _build_link_rows() -> list[dict[str, Any]]:
 				"label": label,
 				"link_type": link_type,
 				"link_to": link_to,
-				"is_query_report": 1 if link_type == "Report" else 0,
-			}
+				"is_query_report": 1 if link_type == "Report" else 0
+	}
 			if link_type == "Report":
 				row["report_ref_doctype"] = frappe.db.get_value("Report", link_to, "ref_doctype")
 			rows.append(row)
@@ -90,7 +91,8 @@ def _build_link_rows() -> list[dict[str, Any]]:
 
 
 def sync_ai_employee_workspace(*, save: bool = True, rebuild: bool = True) -> dict:
-	stats = {"sections": 0, "links": 0, "shortcuts": 0}
+	stats = {"sections": 0, "links": 0, "shortcuts": 0
+	}
 	if not frappe.db.exists("Workspace", WORKSPACE_NAME):
 		ws = frappe.get_doc(
 			{
@@ -99,8 +101,8 @@ def sync_ai_employee_workspace(*, save: bool = True, rebuild: bool = True) -> di
 				"title": WORKSPACE_NAME,
 				"module": "Omnexa AI Employee",
 				"public": 1,
-				"icon": WORKSPACE_ICON,
-			}
+				"icon": WORKSPACE_ICON
+	}
 		)
 		ws.insert(ignore_permissions=True)
 

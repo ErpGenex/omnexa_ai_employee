@@ -32,18 +32,26 @@ def run_ecosystem_audit() -> dict:
 		"omnexa_agriculture",
 		"omnexa_accounting",
 	]
-	doctype_count = frappe.db.count("DocType", {"istable": 0, "custom": 0})
+	doctype_count = frappe.db.count("DocType", {"istable": 0, "custom": 0
+	})
 	whitelisted = _count_whitelisted_methods(installed)
-	providers = frappe.db.count("AI Provider", {"enabled": 1})
-	agents = frappe.db.count("AI Agent", {"enabled": 1})
-	channels = frappe.db.count("AI Channel Account", {"enabled": 1})
-	vector_stores = frappe.db.count("AI Vector Store", {"enabled": 1})
-	ocr_providers = frappe.db.count("AI OCR Provider", {"enabled": 1})
+	providers = frappe.db.count("AI Provider", {"enabled": 1
+	})
+	agents = frappe.db.count("AI Agent", {"enabled": 1
+	})
+	channels = frappe.db.count("AI Channel Account", {"enabled": 1
+	})
+	vector_stores = frappe.db.count("AI Vector Store", {"enabled": 1
+	})
+	ocr_providers = frappe.db.count("AI OCR Provider", {"enabled": 1
+	})
 
 	return {
 		"installed_apps": len(installed),
-		"core_platform": {app: app in installed for app in core_apps},
-		"vertical_apps": {app: app in installed for app in vertical_samples if app in installed},
+		"core_platform": {app: app in installed for app in core_apps
+	},
+		"vertical_apps": {app: app in installed for app in vertical_samples if app in installed
+	},
 		"activities": get_installed_activities(),
 		"doctype_count": doctype_count,
 		"whitelisted_api_count": whitelisted,
@@ -52,10 +60,9 @@ def run_ecosystem_audit() -> dict:
 			"agents": agents,
 			"channels": channels,
 			"vector_stores": vector_stores,
-			"ocr_providers": ocr_providers,
-		},
-		"gaps": _gap_analysis(installed, providers, channels, vector_stores, ocr_providers),
-	}
+			"ocr_providers": ocr_providers
+	},
+		"gaps": _gap_analysis(installed, providers, channels, vector_stores, ocr_providers)}
 
 
 def _count_whitelisted_methods(installed: set[str]) -> int:
@@ -73,13 +80,18 @@ def _count_whitelisted_methods(installed: set[str]) -> int:
 def _gap_analysis(installed, providers, channels, vector_stores, ocr_providers) -> list[dict]:
 	gaps = []
 	if "omnexa_n8n_bridge" not in installed:
-		gaps.append({"area": "Automation", "severity": "Medium", "detail": "n8n bridge not installed for external LLM workflows"})
+		gaps.append({"area": "Automation", "severity": "Medium", "detail": "n8n bridge not installed for external LLM workflows"
+	})
 	if providers == 0:
-		gaps.append({"area": "AI Providers", "severity": "High", "detail": "No enabled AI provider configured"})
+		gaps.append({"area": "AI Providers", "severity": "High", "detail": "No enabled AI provider configured"
+	})
 	if channels == 0:
-		gaps.append({"area": "Channels", "severity": "Medium", "detail": "No WhatsApp/Telegram/SMS channel accounts"})
+		gaps.append({"area": "Channels", "severity": "Medium", "detail": "No WhatsApp/Telegram/SMS channel accounts"
+	})
 	if vector_stores == 0:
-		gaps.append({"area": "RAG", "severity": "Medium", "detail": "No vector store configured for knowledge base"})
+		gaps.append({"area": "RAG", "severity": "Medium", "detail": "No vector store configured for knowledge base"
+	})
 	if ocr_providers == 0:
-		gaps.append({"area": "OCR", "severity": "Low", "detail": "No OCR provider configured"})
+		gaps.append({"area": "OCR", "severity": "Low", "detail": "No OCR provider configured"
+	})
 	return gaps

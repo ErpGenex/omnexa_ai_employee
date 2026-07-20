@@ -39,8 +39,8 @@ def _conversation_doc(conversation: str | None, *, agent_code: str | None, chann
 			"agent_role": agent.agent_role if agent else None,
 			"channel": channel or "Desk",
 			"customer": customer,
-			"status": "Open",
-		}
+			"status": "Open"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return doc
@@ -53,8 +53,8 @@ def _append_message(conversation: str, role: str, content: str, meta: dict | Non
 			"conversation": conversation,
 			"role": role,
 			"content": content,
-			"meta_json": json.dumps(meta or {}, ensure_ascii=False),
-		}
+			"meta_json": json.dumps(meta or {
+	}, ensure_ascii=False)}
 	)
 	msg.insert(ignore_permissions=True)
 	return msg.name
@@ -63,12 +63,14 @@ def _append_message(conversation: str, role: str, content: str, meta: dict | Non
 def _history_messages(conversation: str, limit: int = 20) -> list[dict]:
 	rows = frappe.get_all(
 		"AI Conversation Message",
-		filters={"conversation": conversation},
+		filters={"conversation": conversation
+	},
 		fields=["role", "content"],
 		order_by="creation asc",
 		limit=limit,
 	)
-	return [{"role": r.role.lower(), "content": r.content} for r in rows]
+	return [{"role": r.role.lower(), "content": r.content
+	} for r in rows]
 
 
 def process_chat(
@@ -93,15 +95,20 @@ def process_chat(
 		reply = frappe._(
 			"No AI provider configured for route {0}. Add an AI Provider record."
 		).format(route.get("route_target"))
-		_append_message(conv.name, "Assistant", reply, {"route": route})
-		return {"conversation": conv.name, "reply": reply, "route": route, "provider": None}
+		_append_message(conv.name, "Assistant", reply, {"route": route
+	})
+		return {"conversation": conv.name, "reply": reply, "route": route, "provider": None
+	}
 
 	messages = []
 	if agent and agent.system_prompt:
-		messages.append({"role": "system", "content": agent.system_prompt})
-	messages.append({"role": "system", "content": get_activity_context_prompt()})
+		messages.append({"role": "system", "content": agent.system_prompt
+	})
+	messages.append({"role": "system", "content": get_activity_context_prompt()
+	})
 	if company:
-		messages.append({"role": "system", "content": f"Company context: {company}"})
+		messages.append({"role": "system", "content": f"Company context: {company}"
+	})
 	messages.extend(_history_messages(conv.name))
 
 	client = get_provider_client(route["provider"])
@@ -110,15 +117,19 @@ def process_chat(
 	except Exception as exc:
 		frappe.log_error(frappe.get_traceback(), "AI Employee chat")
 		reply = frappe._("AI provider error: {0}").format(str(exc))
-		_append_message(conv.name, "Assistant", reply, {"route": route, "error": str(exc)})
-		conv.db_set({"status": "Error", "last_activity": now_datetime()})
-		return {"conversation": conv.name, "reply": reply, "route": route, "error": str(exc)}
+		_append_message(conv.name, "Assistant", reply, {"route": route, "error": str(exc)
+	})
+		conv.db_set({"status": "Error", "last_activity": now_datetime()
+	})
+		return {"conversation": conv.name, "reply": reply, "route": route, "error": str(exc)
+	}
 
 	_append_message(
 		conv.name,
 		"Assistant",
 		result.text,
-		{"route": route, "provider": result.provider, "model": result.model},
+		{"route": route, "provider": result.provider, "model": result.model
+	},
 	)
 	action_note = maybe_execute_erp_action(
 		user_text=message,
@@ -129,8 +140,10 @@ def process_chat(
 	final_reply = result.text
 	if action_note:
 		final_reply = f"{result.text}\n\n{action_note}"
-		_append_message(conv.name, "System", action_note, {"erp_action": True})
-	conv.db_set({"status": "Open", "last_activity": now_datetime(), "last_provider": result.provider})
+		_append_message(conv.name, "System", action_note, {"erp_action": True
+	})
+	conv.db_set({"status": "Open", "last_activity": now_datetime(), "last_provider": result.provider
+	})
 	frappe.db.commit()
 
 	return {
@@ -139,5 +152,5 @@ def process_chat(
 		"route": route,
 		"provider": result.provider,
 		"model": result.model,
-		"erp_action": action_note,
+		"erp_action": action_note
 	}

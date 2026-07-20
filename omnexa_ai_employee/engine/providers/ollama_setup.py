@@ -31,7 +31,8 @@ def _candidate_ollama_urls(explicit: str | None = None) -> list[str]:
 	settings_url = frappe.db.get_single_value("AI Employee Settings", "ollama_base_url")
 	if settings_url:
 		urls.append(str(settings_url).rstrip("/"))
-	for row in frappe.get_all("AI Provider", filters={"provider_type": "Ollama"}, fields=["base_url"]):
+	for row in frappe.get_all("AI Provider", filters={"provider_type": "Ollama"
+	}, fields=["base_url"]):
 		if row.base_url:
 			urls.append(str(row.base_url).rstrip("/"))
 	urls.append(DEFAULT_OLLAMA_URL)
@@ -56,9 +57,11 @@ def probe_ollama(base_url: str | None = None, *, timeout: int = 5) -> dict:
 			resp = requests.get(f"{url}/api/tags", timeout=timeout)
 			resp.raise_for_status()
 			models = [m.get("name") for m in (resp.json().get("models") or []) if m.get("name")]
-			return {"ok": True, "base_url": url, "models": models}
+			return {"ok": True, "base_url": url, "models": models
+	}
 		except Exception as exc:
-			return {"ok": False, "base_url": url, "message": str(exc), "models": []}
+			return {"ok": False, "base_url": url, "message": str(exc), "models": []
+	}
 
 	last_error = ""
 	for url in _candidate_ollama_urls():
@@ -66,10 +69,12 @@ def probe_ollama(base_url: str | None = None, *, timeout: int = 5) -> dict:
 			resp = requests.get(f"{url}/api/tags", timeout=timeout)
 			resp.raise_for_status()
 			models = [m.get("name") for m in (resp.json().get("models") or []) if m.get("name")]
-			return {"ok": True, "base_url": url, "models": models}
+			return {"ok": True, "base_url": url, "models": models
+	}
 		except Exception as exc:
 			last_error = str(exc)
-	return {"ok": False, "base_url": _candidate_ollama_urls()[0], "message": last_error, "models": []}
+	return {"ok": False, "base_url": _candidate_ollama_urls()[0], "message": last_error, "models": []
+	}
 
 
 def pick_default_model(models: list[str], preferred: str | None = None) -> str:
@@ -101,7 +106,8 @@ def bootstrap_ollama_provider(*, save: bool = True) -> dict:
 	if probe.get("ok"):
 		for row in frappe.get_all(
 			"AI Provider",
-			filters={"provider_type": "Ollama", "enabled": 1},
+			filters={"provider_type": "Ollama", "enabled": 1
+	},
 			fields=["name", "base_url"],
 		):
 			if (row.base_url or "").rstrip("/") == base_url.rstrip("/"):
@@ -136,8 +142,8 @@ def bootstrap_ollama_provider(*, save: bool = True) -> dict:
 			"base_url": doc.base_url,
 			"model_name": doc.model_name,
 			"ollama_reachable": probe.get("ok"),
-			"models": probe.get("models") or [],
-		}
+			"models": probe.get("models") or []
+	}
 
 	doc = frappe.get_doc(
 		{
@@ -151,8 +157,8 @@ def bootstrap_ollama_provider(*, save: bool = True) -> dict:
 			"model_name": model,
 			"temperature": 0.2,
 			"max_tokens": 1024,
-			"timeout_seconds": 120,
-		}
+			"timeout_seconds": 120
+	}
 	)
 	if save:
 		doc.insert(ignore_permissions=True)
@@ -162,5 +168,5 @@ def bootstrap_ollama_provider(*, save: bool = True) -> dict:
 		"base_url": base_url,
 		"model_name": model,
 		"ollama_reachable": probe.get("ok"),
-		"models": probe.get("models") or [],
+		"models": probe.get("models") or []
 	}

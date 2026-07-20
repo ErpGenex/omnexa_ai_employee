@@ -54,7 +54,8 @@ DEFAULT_AGENTS = [
 
 
 def bootstrap_defaults() -> dict:
-	stats = {"settings": 0, "agents": 0, "routing_rules": 0}
+	stats = {"settings": 0, "agents": 0, "routing_rules": 0
+	}
 	if not frappe.db.exists("AI Employee Settings", "AI Employee Settings"):
 		doc = frappe.new_doc("AI Employee Settings")
 		doc.enabled = 1
@@ -87,8 +88,8 @@ def bootstrap_defaults() -> dict:
 				"route_target": route,
 				"priority": priority,
 				"match_keywords": keywords,
-				"enabled": 1,
-			}
+				"enabled": 1
+	}
 		).insert(ignore_permissions=True)
 		stats["routing_rules"] += 1
 
@@ -107,11 +108,16 @@ def bootstrap_whatsapp_channel() -> dict:
 	if frappe.db.exists("AI Channel Account", "whatsapp-main"):
 		doc = frappe.get_doc("AI Channel Account", "whatsapp-main")
 		if not doc.default_agent:
-			doc.default_agent = frappe.db.get_value("AI Agent", {"enabled": 1, "agent_code": "support"}, "name") or frappe.db.get_value("AI Agent", {"enabled": 1}, "name")
+			doc.default_agent = frappe.db.get_value("AI Agent", {"enabled": 1, "agent_code": "support"
+	}, "name") or frappe.db.get_value("AI Agent", {"enabled": 1
+	}, "name")
 			doc.save(ignore_permissions=True)
-		return {"created": False, "name": doc.name, "webhook_url": doc.webhook_url}
+		return {"created": False, "name": doc.name, "webhook_url": doc.webhook_url
+	}
 
-	agent = frappe.db.get_value("AI Agent", {"enabled": 1, "agent_code": "support"}, "name") or frappe.db.get_value("AI Agent", {"enabled": 1}, "name")
+	agent = frappe.db.get_value("AI Agent", {"enabled": 1, "agent_code": "support"
+	}, "name") or frappe.db.get_value("AI Agent", {"enabled": 1
+	}, "name")
 	doc = frappe.get_doc(
 		{
 			"doctype": "AI Channel Account",
@@ -120,11 +126,12 @@ def bootstrap_whatsapp_channel() -> dict:
 			"enabled": 1,
 			"default_agent": agent,
 			"verify_token": frappe.generate_hash(length=24),
-			"api_version": "v21.0",
-		}
+			"api_version": "v21.0"
+	}
 	)
 	doc.insert(ignore_permissions=True)
-	return {"created": True, "name": doc.name, "webhook_url": doc.webhook_url, "verify_token": doc.verify_token}
+	return {"created": True, "name": doc.name, "webhook_url": doc.webhook_url, "verify_token": doc.verify_token
+	}
 
 
 def sync_agents_from_install() -> dict:
@@ -134,7 +141,8 @@ def sync_agents_from_install() -> dict:
 		return sync_activity_agents()
 	except Exception:
 		frappe.log_error(frappe.get_traceback(), "AI Employee: sync activity agents")
-		return {"created": 0, "skipped": 0}
+		return {"created": 0, "skipped": 0
+	}
 
 
 def after_install():

@@ -143,73 +143,75 @@ ACTION_DEFINITIONS: list[dict] = [
 		"action": "sales_quotation",
 		"pattern": r"\b(quotation|quote|عرض\s*سعر)\b",
 		"roles": {"Sales", "Tourism", "Finance", "Trading"},
-		"doctype": "Sales Quotation",
+		"doctype": "Sales Quotation"
 	},
 	{
 		"action": "support_ticket",
 		"pattern": r"\b(ticket|complaint|شكوى|تذكرة)\b",
 		"roles": {"Customer Service", "Sales", "Operations"},
-		"doctypes": ["CRM Case Ticket", "Service Ticket"],
-	},
+		"doctypes": ["CRM Case Ticket", "Service Ticket"]},
 	{
 		"action": "healthcare_appointment",
 		"pattern": r"\b(appointment|موعد|حجز)\b",
-		"roles": {"Healthcare"},
-		"doctype": "Healthcare Appointment",
+		"roles": {"Healthcare"
+	},
+		"doctype": "Healthcare Appointment"
 	},
 	{
 		"action": "trading_van_sales",
 		"pattern": r"\b(van\s*sales|mobile\s*sales|فاتورة\s*مندوب)\b",
 		"roles": {"Trading", "Sales"},
-		"doctype": "Trading Van Sales Invoice",
+		"doctype": "Trading Van Sales Invoice"
 	},
 	{
 		"action": "trading_distribution",
 		"pattern": r"\b(distribution\s*order|delivery\s*order|أمر\s*توزيع)\b",
 		"roles": {"Trading", "Sales", "Operations"},
-		"doctype": "Trading Distribution Order",
+		"doctype": "Trading Distribution Order"
 	},
 	{
 		"action": "hr_leave",
 		"pattern": r"\b(leave\s*application|إجازة|طلب\s*إجازة)\b",
-		"roles": {"HR"},
-		"doctype": "HR Leave Application",
+		"roles": {"HR"
+	},
+		"doctype": "HR Leave Application"
 	},
 	{
 		"action": "hr_expense",
 		"pattern": r"\b(expense\s*claim|مصروف|مطالبة\s*مصروف)\b",
 		"roles": {"HR", "Finance", "Accounting"},
-		"doctype": "HR Expense Claim",
+		"doctype": "HR Expense Claim"
 	},
 	{
 		"action": "work_order",
 		"pattern": r"\b(work\s*order|production\s*order|أمر\s*تشغيل)\b",
 		"roles": {"Manufacturing", "Operations"},
-		"doctype": "Work Order",
+		"doctype": "Work Order"
 	},
 	{
 		"action": "pm_issue",
 		"pattern": r"\b(project\s*issue|pm\s*issue|مشكلة\s*مشروع)\b",
 		"roles": {"Projects", "Operations"},
-		"doctype": "PM Issue Log",
+		"doctype": "PM Issue Log"
 	},
 	{
 		"action": "restaurant_order",
 		"pattern": r"\b(restaurant\s*order|table\s*order|طلب\s*مطعم)\b",
 		"roles": {"Restaurant", "Tourism"},
-		"doctype": "Restaurant Order",
+		"doctype": "Restaurant Order"
 	},
 	{
 		"action": "loan_application",
 		"pattern": r"\b(loan\s*application|طلب\s*قرض|تمويل)\b",
-		"roles": {"Finance"},
-		"doctype": "Consumer Loan Application",
+		"roles": {"Finance"
+	},
+		"doctype": "Consumer Loan Application"
 	},
 	{
 		"action": "service_contract",
 		"pattern": r"\b(service\s*contract|عقد\s*خدمة)\b",
 		"roles": {"Customer Service", "Operations"},
-		"doctype": "Service Contract",
+		"doctype": "Service Contract"
 	},
 ]
 
@@ -254,28 +256,28 @@ EXTENDED_AGENTS: list[dict] = [
 		"agent_name": "Agriculture Employee",
 		"agent_role": "Agriculture",
 		"description": "Farm operations, crops, harvest planning.",
-		"system_prompt": "You are an agriculture operations assistant.",
+		"system_prompt": "You are an agriculture operations assistant."
 	},
 	{
 		"agent_code": "construction",
 		"agent_name": "Construction Employee",
 		"agent_role": "Construction",
 		"description": "Site operations, BOQ, subcontractor coordination.",
-		"system_prompt": "You are a construction project assistant.",
+		"system_prompt": "You are a construction project assistant."
 	},
 	{
 		"agent_code": "restaurant",
 		"agent_name": "Restaurant Employee",
 		"agent_role": "Restaurant",
 		"description": "Orders, tables, kitchen tickets.",
-		"system_prompt": "You are a restaurant operations assistant for orders and kitchen coordination.",
+		"system_prompt": "You are a restaurant operations assistant for orders and kitchen coordination."
 	},
 	{
 		"agent_code": "operations",
 		"agent_name": "Operations Employee",
 		"agent_role": "Operations",
 		"description": "Cross-module workflows and escalations.",
-		"system_prompt": "You are an operations coordinator across ERPGENEX modules.",
+		"system_prompt": "You are an operations coordinator across ERPGENEX modules."
 	},
 ]
 
@@ -303,8 +305,7 @@ def get_installed_activities() -> list[dict]:
 			{
 				**row,
 				"installed": True,
-				"agent_exists": bool(frappe.db.exists("AI Agent", row["agent_code"])),
-			}
+				"agent_exists": bool(frappe.db.exists("AI Agent", row["agent_code"]))}
 		)
 	return rows
 
@@ -337,7 +338,8 @@ def resolve_agent_for_message(message: str, current_agent_code: str | None = Non
 	if best_code and frappe.db.exists("AI Agent", best_code):
 		return best_code
 
-	fallback = frappe.db.get_value("AI Agent", {"enabled": 1}, "name", order_by="modified desc")
+	fallback = frappe.db.get_value("AI Agent", {"enabled": 1
+	}, "name", order_by="modified desc")
 	return fallback
 
 
@@ -370,15 +372,16 @@ def list_action_capabilities() -> list[dict]:
 				"action": spec["action"],
 				"available": _doctype_available(spec),
 				"roles": sorted(spec.get("roles") or []),
-				"doctype": spec.get("doctype") or (spec.get("doctypes") or [None])[0],
-			}
+				"doctype": spec.get("doctype") or (spec.get("doctypes") or [None])[0]
+	}
 		)
 	return rows
 
 
 def sync_activity_agents() -> dict:
 	"""Create agents for installed vertical apps (idempotent)."""
-	stats = {"created": 0, "skipped": 0}
+	stats = {"created": 0, "skipped": 0
+	}
 	installed = _installed_apps()
 	for row in EXTENDED_AGENTS:
 		activity = next((a for a in ACTIVITY_DEFINITIONS if a["agent_code"] == row["agent_code"]), None)

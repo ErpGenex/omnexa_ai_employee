@@ -31,7 +31,8 @@ def _verify_webhook_token(account_name: str | None = None) -> bool:
 	if not account:
 		row = frappe.get_all(
 			"AI Channel Account",
-			filters={"enabled": 1, "channel_type": "WhatsApp"},
+			filters={"enabled": 1, "channel_type": "WhatsApp"
+	},
 			fields=["name"],
 			limit=1,
 		)
@@ -48,8 +49,10 @@ def _provider_health() -> list[dict]:
 		try:
 			status = get_provider_client(row["name"]).health_check()
 		except Exception as exc:
-			status = {"ok": False, "message": str(exc)}
-		health.append({**row, "health": status})
+			status = {"ok": False, "message": str(exc)
+	}
+		health.append({**row, "health": status
+	})
 	return health
 
 
@@ -67,13 +70,15 @@ def get_dashboard() -> dict:
 		"kpis": {
 			"active_conversations": open_conversations,
 			"orders_generated": orders_generated,
-			"appointments_created": frappe.db.count("AI Conversation", {"agent_role": "Healthcare", "status": "Closed"}),
+			"appointments_created": frappe.db.count("AI Conversation", {"agent_role": "Healthcare", "status": "Closed"
+	}),
 			"ai_providers": audit["ai_employee"]["providers"],
-			"escalation_rate": _escalation_rate(),
-		},
+			"escalation_rate": _escalation_rate()
+	},
 		"agents": frappe.get_all(
 			"AI Agent",
-			filters={"enabled": 1},
+			filters={"enabled": 1
+	},
 			fields=["name", "agent_name", "agent_role", "description"],
 			order_by="agent_role asc",
 		),
@@ -82,7 +87,7 @@ def get_dashboard() -> dict:
 		"activities": get_installed_activities(),
 		"erp_actions": list_action_capabilities(),
 		"ollama": ollama,
-		"audit_summary": audit,
+		"audit_summary": audit
 	}
 
 
@@ -90,7 +95,8 @@ def _escalation_rate() -> float:
 	total = frappe.db.count("AI Conversation")
 	if not total:
 		return 0.0
-	escalated = frappe.db.count("AI Conversation", {"status": "Escalated"})
+	escalated = frappe.db.count("AI Conversation", {"status": "Escalated"
+	})
 	return round(escalated * 100.0 / total, 1)
 
 
@@ -118,7 +124,7 @@ def list_activities() -> dict:
 	frappe.only_for(("System Manager", "AI Employee User"))
 	return {
 		"activities": get_installed_activities(),
-		"erp_actions": list_action_capabilities(),
+		"erp_actions": list_action_capabilities()
 	}
 
 
@@ -165,9 +171,10 @@ def discover_provider_models(base_url: str, provider_type: str = "Ollama") -> di
 			"base_url": result.get("base_url") or base_url,
 			"models": models,
 			"recommended": pick_default_model(models) if models else None,
-			"message": result.get("message"),
-		}
-	return {"ok": False, "models": [], "message": _("Model discovery not implemented for {0}").format(ptype)}
+			"message": result.get("message")
+	}
+	return {"ok": False, "models": [], "message": _("Model discovery not implemented for {0}").format(ptype)
+	}
 
 
 @frappe.whitelist(allow_guest=True, methods=["GET", "POST"])
@@ -218,7 +225,8 @@ def whatsapp_webhook(account: str | None = None):
 			)
 		)
 	frappe.db.commit()
-	return {"ok": True, "processed": len(results), "results": results}
+	return {"ok": True, "processed": len(results), "results": results
+	}
 
 
 @frappe.whitelist()

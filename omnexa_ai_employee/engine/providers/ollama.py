@@ -24,9 +24,8 @@ class OllamaProvider(BaseAIProvider):
 			"stream": False,
 			"options": {
 				"temperature": float(temperature if temperature is not None else self.doc.temperature or 0.2),
-				"num_predict": int(max_tokens or self.doc.max_tokens or 1024),
-			},
-		}
+				"num_predict": int(max_tokens or self.doc.max_tokens or 1024)}
+	}
 		timeout = int(self.doc.timeout_seconds or 60)
 		resp = requests.post(f"{base_url}/api/chat", json=payload, timeout=timeout)
 		resp.raise_for_status()
@@ -40,6 +39,8 @@ class OllamaProvider(BaseAIProvider):
 			resp = requests.get(f"{base_url}/api/tags", timeout=5)
 			resp.raise_for_status()
 			models = [m.get("name") for m in (resp.json().get("models") or [])]
-			return {"ok": True, "models": models[:20]}
+			return {"ok": True, "models": models[:20]
+	}
 		except Exception as exc:
-			return {"ok": False, "message": str(exc)}
+			return {"ok": False, "message": str(exc)
+	}

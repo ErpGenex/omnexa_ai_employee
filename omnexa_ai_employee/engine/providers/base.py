@@ -26,4 +26,5 @@ class BaseAIProvider:
 		raise NotImplementedError
 
 	def health_check(self) -> dict:
-		return {"ok": False, "message": "Not implemented"}
+		return {"ok": False, "message": "Not implemented"
+	}

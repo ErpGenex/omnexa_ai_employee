@@ -13,7 +13,8 @@ from omnexa_ai_employee.engine.orchestrator import process_chat
 
 
 def _resolve_channel_account(channel_type: str, account_name: str | None = None):
-	filters = {"enabled": 1, "channel_type": channel_type}
+	filters = {"enabled": 1, "channel_type": channel_type
+	}
 	if account_name:
 		filters["name"] = account_name
 	rows = frappe.get_all("AI Channel Account", filters=filters, fields=["name", "default_agent"], limit=1)
@@ -29,7 +30,8 @@ def handle_inbound_message(
 	profile_name: str | None = None,
 ) -> dict:
 	if not (text or "").strip():
-		return {"ok": False, "message": "Empty message"}
+		return {"ok": False, "message": "Empty message"
+	}
 
 	account = _resolve_channel_account(channel, account_name)
 	agent_code = account.default_agent if account else None
@@ -50,7 +52,8 @@ def handle_inbound_message(
 		try:
 			outbound = send_whatsapp_text(to_phone=sender_id, message=reply, account_name=account.name if account else None)
 		except Exception as exc:
-			outbound = {"ok": False, "message": str(exc)}
+			outbound = {"ok": False, "message": str(exc)
+	}
 
 	return {
 		"ok": True,
@@ -58,7 +61,7 @@ def handle_inbound_message(
 		"reply": reply,
 		"route": result.get("route"),
 		"outbound": outbound,
-		"erp_action": result.get("erp_action"),
+		"erp_action": result.get("erp_action")
 	}
 
 

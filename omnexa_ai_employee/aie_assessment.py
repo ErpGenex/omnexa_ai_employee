@@ -25,5 +25,5 @@ def export_aie_global_audit() -> dict:
 		"path": root,
 		"weighted_score": score.get("weighted_score"),
 		"gaps_open": gaps.get("gaps_open"),
-		"global_leader_gate": score.get("global_leader_gate"),
+		"global_leader_gate": score.get("global_leader_gate")
 	}

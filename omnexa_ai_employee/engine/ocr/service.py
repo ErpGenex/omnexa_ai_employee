@@ -13,9 +13,11 @@ def run_ocr(*, provider: str | None = None, document_type: str | None = None, fi
 	if not file_url:
 		frappe.throw(frappe._("file_url is required"))
 
-	name = provider or frappe.db.get_value("AI OCR Provider", {"enabled": 1, "is_default": 1}, "name")
+	name = provider or frappe.db.get_value("AI OCR Provider", {"enabled": 1, "is_default": 1
+	}, "name")
 	if not name:
-		name = frappe.db.get_value("AI OCR Provider", {"enabled": 1}, "name")
+		name = frappe.db.get_value("AI OCR Provider", {"enabled": 1
+	}, "name")
 	if not name:
 		frappe.throw(frappe._("No OCR provider configured. Create AI OCR Provider."))
 
@@ -27,6 +29,7 @@ def run_ocr(*, provider: str | None = None, document_type: str | None = None, fi
 		"document_type": document_type or "General",
 		"file_url": file_url,
 		"extracted_text": "",
-		"structured_fields": {},
-		"message": frappe._("OCR provider {0} registered. Wire engine SDK in deployment.").format(doc.engine),
+		"structured_fields": {
+	},
+		"message": frappe._("OCR provider {0} registered. Wire engine SDK in deployment.").format(doc.engine)
 	}

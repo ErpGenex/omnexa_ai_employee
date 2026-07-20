@@ -1,0 +1,128 @@
+{
+    "name": "Omnexa Ai Employee",
+    "module": "ErpGenEx \u2014 AI Employee",
+    "category": "Modules",
+    "public": 1,
+    "is_hidden": 0,
+    "links": [
+        {
+            "label": "Omnexa Ai Employee List",
+            "name": "omnexa_ai_employee",
+            "type": "List",
+            "link_to": "omnexa_ai_employee",
+            "onboard": 1
+        },
+        {
+            "label": "Omnexa Ai Employee Dashboard",
+            "name": "omnexa_ai_employee_dashboard",
+            "type": "Dashboard",
+            "link_to": "omnexa_ai_employee_dashboard",
+            "onboard": 1
+        }
+    ],
+    "shortcuts": [],
+    "number_cards": [
+        {
+            "label": "Total Records",
+            "number_card_name": "omnexa_ai_employee_total_records",
+            "number_card_doc_type": "Number Card",
+            "is_standard": 1
+        },
+        {
+            "label": "Active Items",
+            "number_card_name": "omnexa_ai_employee_active_items",
+            "number_card_doc_type": "Number Card",
+            "is_standard": 1
+        },
+        {
+            "label": "Pending Actions",
+            "number_card_name": "omnexa_ai_employee_pending_actions",
+            "number_card_doc_type": "Number Card",
+            "is_standard": 1
+        },
+        {
+            "label": "Completed Tasks",
+            "number_card_name": "omnexa_ai_employee_completed_tasks",
+            "number_card_doc_type": "Number Card",
+            "is_standard": 1
+        }
+    ],
+    "charts": [
+        {
+            "label": "Monthly Activity",
+            "chart_name": "omnexa_ai_employee_monthly_activity",
+            "chart_type": "Line",
+            "is_standard": 1
+        },
+        {
+            "label": "Status Distribution",
+            "chart_name": "omnexa_ai_employee_status_distribution",
+            "chart_type": "Pie",
+            "is_standard": 1
+        },
+        {
+            "label": "Performance Metrics",
+            "chart_name": "omnexa_ai_employee_performance_metrics",
+            "chart_type": "Bar",
+            "is_standard": 1
+        }
+    ],
+    "reports": [
+        {
+            "label": "Omnexa Ai Employee Report",
+            "name": "omnexa_ai_employee_report",
+            "type": "Report",
+            "is_standard": 1
+        },
+        {
+            "label": "Summary Report",
+            "name": "omnexa_ai_employee_summary_report",
+            "type": "Report",
+            "is_standard": 1
+        },
+        {
+            "label": "Detailed Analysis",
+            "name": "omnexa_ai_employee_detailed_analysis",
+            "type": "Report",
+            "is_standard": 1
+        },
+        {
+            "label": "Performance Report",
+            "name": "omnexa_ai_employee_performance_report",
+            "type": "Report",
+            "is_standard": 1
+        }
+    ],
+    "operations": [
+        {
+            "label": "Create Omnexa Ai Employee",
+            "name": "create_omnexa_ai_employee",
+            "type": "Action",
+            "is_standard": 1
+        },
+        {
+            "label": "Import Data",
+            "name": "import_omnexa_ai_employee_data",
+            "type": "Action",
+            "is_standard": 1
+        },
+        {
+            "label": "Export Records",
+            "name": "export_omnexa_ai_employee_records",
+            "type": "Action",
+            "is_standard": 1
+        },
+        {
+            "label": "Settings",
+            "name": "omnexa_ai_employee_settings",
+            "type": "Action",
+            "is_standard": 1
+        },
+        {
+            "label": "Bulk Update",
+            "name": "bulk_update_omnexa_ai_employee",
+            "type": "Action",
+            "is_standard": 1
+        }
+    ]
+}

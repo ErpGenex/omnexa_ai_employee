@@ -52,10 +52,10 @@ def _create_sales_quotation(*, customer: str | None, note: str) -> str:
 			"company": company,
 			"customer": customer,
 			"transaction_date": today(),
-			"valid_till": add_days(today(), 30),
-		}
+			"valid_till": add_days(today(), 30)}
 	)
-	doc.append("items", {"item_code": _default_item(), "qty": 1, "rate": 0})
+	doc.append("items", {"item_code": _default_item(), "qty": 1, "rate": 0
+	})
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created draft Sales Quotation {0}").format(doc.name)
 
@@ -76,8 +76,8 @@ def _create_service_ticket(*, customer: str | None, note: str) -> str:
 				"customer_profile": profile,
 				"status": "Open",
 				"creation_date": today(),
-				"details": note,
-			}
+				"details": note
+	}
 		)
 		doc.insert(ignore_permissions=True)
 		return frappe._("Created CRM Case Ticket {0}").format(doc.name)
@@ -89,8 +89,8 @@ def _create_service_ticket(*, customer: str | None, note: str) -> str:
 			"company": company,
 			"branch": branch,
 			"channel": "WhatsApp",
-			"status": "Open",
-		}
+			"status": "Open"
+	}
 		if profile:
 			payload["customer_profile"] = profile
 		doc = frappe.get_doc(payload)
@@ -111,8 +111,8 @@ def _create_healthcare_appointment(*, customer: str | None, note: str) -> str:
 			"appointment_date": today(),
 			"appointment_time": now_datetime().strftime("%H:%M:%S"),
 			"status": "Scheduled",
-			"notes": note,
-		}
+			"notes": note
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created Healthcare Appointment {0}").format(doc.name)
@@ -126,7 +126,8 @@ def _create_trading_van_sales(*, customer: str | None, note: str) -> str:
 	if not company or not branch:
 		return frappe._("Company and Branch are required for van sales.")
 	profile = _resolve_customer_profile(customer, company)
-	sales_rep = frappe.db.get_value("Trading Sales Representative", {"company": company, "branch": branch}, "name")
+	sales_rep = frappe.db.get_value("Trading Sales Representative", {"company": company, "branch": branch
+	}, "name")
 	if not profile or not sales_rep:
 		return frappe._("Customer Profile and Sales Representative are required for van sales.")
 	doc = frappe.get_doc(
@@ -138,8 +139,8 @@ def _create_trading_van_sales(*, customer: str | None, note: str) -> str:
 			"sales_representative": sales_rep,
 			"posting_date": today(),
 			"payment_type": "Cash",
-			"items": [{"item": _default_item(), "qty": 1, "rate": 0}],
-		}
+			"items": [{"item": _default_item(), "qty": 1, "rate": 0}]
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created draft Trading Van Sales Invoice {0}").format(doc.name)
@@ -151,8 +152,10 @@ def _create_trading_distribution(*, customer: str | None, note: str) -> str:
 		return frappe._("Trading Distribution Order DocType not available.")
 	company, branch = _default_company_branch()
 	profile = _resolve_customer_profile(customer, company)
-	route_plan = frappe.db.get_value("Trading Route Plan", {"company": company}, "name")
-	sales_rep = frappe.db.get_value("Trading Sales Representative", {"company": company, "branch": branch}, "name")
+	route_plan = frappe.db.get_value("Trading Route Plan", {"company": company
+	}, "name")
+	sales_rep = frappe.db.get_value("Trading Sales Representative", {"company": company, "branch": branch
+	}, "name")
 	if not all([company, branch, route_plan, sales_rep, profile]):
 		return frappe._("Route Plan, Sales Representative, and Customer Profile are required for distribution orders.")
 	doc = frappe.get_doc(
@@ -165,8 +168,8 @@ def _create_trading_distribution(*, customer: str | None, note: str) -> str:
 			"customer_profile": profile,
 			"planned_delivery_date": today(),
 			"status": "Draft",
-			"items": [{"item": _default_item(), "qty": 1, "rate": 0}],
-		}
+			"items": [{"item": _default_item(), "qty": 1, "rate": 0}]
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created draft Trading Distribution Order {0}").format(doc.name)
@@ -191,8 +194,8 @@ def _create_hr_leave(*, customer: str | None, note: str) -> str:
 			"from_date": today(),
 			"to_date": add_days(today(), 1),
 			"reason": (note or "")[:500],
-			"status": "Draft",
-		}
+			"status": "Draft"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created draft HR Leave Application {0}").format(doc.name)
@@ -214,8 +217,8 @@ def _create_hr_expense(*, customer: str | None, note: str) -> str:
 			"branch": branch,
 			"posting_date": today(),
 			"description": (note or "AI expense claim")[:500],
-			"status": "Draft",
-		}
+			"status": "Draft"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created draft HR Expense Claim {0}").format(doc.name)
@@ -235,8 +238,8 @@ def _create_work_order(*, customer: str | None, note: str) -> str:
 			"item": item,
 			"qty_to_produce": 1,
 			"planned_start_date": today(),
-			"status": "Draft",
-		}
+			"status": "Draft"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created draft Work Order {0}").format(doc.name)
@@ -247,7 +250,8 @@ def _create_pm_issue(*, customer: str | None, note: str) -> str:
 	if not frappe.db.exists("DocType", "PM Issue Log"):
 		return frappe._("PM Issue Log DocType not available.")
 	company, branch = _default_company_branch()
-	project = frappe.db.get_value("Project Contract", {"company": company}, "name") if company else None
+	project = frappe.db.get_value("Project Contract", {"company": company
+	}, "name") if company else None
 	if not project:
 		project = frappe.db.get_value("Project Contract", {}, "name")
 	if not project:
@@ -261,8 +265,8 @@ def _create_pm_issue(*, customer: str | None, note: str) -> str:
 			"issue_title": (note or "AI project issue")[:140],
 			"description": note,
 			"severity": "Medium",
-			"status": "Open",
-		}
+			"status": "Open"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created PM Issue Log {0}").format(doc.name)
@@ -282,8 +286,8 @@ def _create_restaurant_order(*, customer: str | None, note: str) -> str:
 			"branch": branch,
 			"customer_profile": profile,
 			"customer": customer if customer and frappe.db.exists("Customer", customer) else None,
-			"status": "Open",
-		}
+			"status": "Open"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created Restaurant Order {0}").format(doc.name)
@@ -303,8 +307,8 @@ def _create_loan_application(*, customer: str | None, note: str) -> str:
 			"principal": flt(1000),
 			"term_months": 12,
 			"application_channel": "MOBILE",
-			"application_status": "SUBMITTED",
-		}
+			"application_status": "SUBMITTED"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created Consumer Loan Application {0}").format(doc.name)
@@ -323,18 +327,20 @@ def _create_service_contract(*, customer: str | None, note: str) -> str:
 			"branch": branch,
 			"customer_profile": profile,
 			"start_date": today(),
-			"status": "Draft",
-		}
+			"status": "Draft"
+	}
 	)
 	doc.insert(ignore_permissions=True)
 	return frappe._("Created draft Service Contract {0}").format(doc.name)
 
 
 def _default_item() -> str:
-	item = frappe.db.get_value("Item", {"disabled": 0, "is_sales_item": 1}, "name")
+	item = frappe.db.get_value("Item", {"disabled": 0, "is_sales_item": 1
+	}, "name")
 	if item:
 		return item
-	item = frappe.db.get_value("Item", {"disabled": 0}, "name")
+	item = frappe.db.get_value("Item", {"disabled": 0
+	}, "name")
 	if item:
 		return item
 	frappe.throw(frappe._("No Item found for document line."))
@@ -346,12 +352,14 @@ def _default_company_branch() -> tuple[str | None, str | None]:
 	if not company:
 		company = (frappe.db.get_single_value("Global Defaults", "default_company") or "").strip()
 	if not branch and company:
-		branch = frappe.db.get_value("Branch", {"company": company}, "name")
+		branch = frappe.db.get_value("Branch", {"company": company
+	}, "name")
 	return company or None, branch or None
 
 
 def _default_employee(company: str | None) -> str | None:
-	filters = {"company": company} if company else {}
+	filters = {"company": company} if company else {
+	}
 	return frappe.db.get_value("Employee", filters, "name", order_by="creation desc")
 
 
@@ -361,10 +369,12 @@ def _resolve_customer_profile(customer: str | None, company: str | None) -> str 
 	if customer and frappe.db.exists("Customer Profile", customer):
 		return customer
 	if customer and frappe.db.exists("Customer", customer):
-		profile = frappe.db.get_value("Customer Profile", {"linked_customer": customer}, "name")
+		profile = frappe.db.get_value("Customer Profile", {"linked_customer": customer
+	}, "name")
 		if profile:
 			return profile
-	filters = {"company": company} if company else {}
+	filters = {"company": company} if company else {
+	}
 	profile = frappe.db.get_value("Customer Profile", filters, "name")
 	if profile:
 		return profile

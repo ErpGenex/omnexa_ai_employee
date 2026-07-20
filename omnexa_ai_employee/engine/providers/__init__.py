@@ -19,8 +19,8 @@ _PROVIDER_MAP = {
 	"Azure OpenAI": OpenAICompatibleProvider,
 	"Open WebUI": OpenAICompatibleProvider,
 	"LM Studio": OpenAICompatibleProvider,
-	"vLLM": OpenAICompatibleProvider,
-}
+	"vLLM": OpenAICompatibleProvider
+	}
 
 
 def get_provider_client(provider_name: str) -> BaseAIProvider:
@@ -34,7 +34,8 @@ def get_provider_client(provider_name: str) -> BaseAIProvider:
 
 
 def list_enabled_providers(route_target: str | None = None) -> list[dict]:
-	filters = {"enabled": 1}
+	filters = {"enabled": 1
+	}
 	if route_target:
 		filters["route_target"] = route_target
 	return frappe.get_all(

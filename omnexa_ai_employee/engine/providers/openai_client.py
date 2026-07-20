@@ -20,7 +20,9 @@ class OpenAICompatibleProvider(BaseAIProvider):
 		api_key = self.doc.get_password("api_key") if self.doc.api_key else None
 		if not api_key:
 			frappe.throw(frappe._("API key is required for provider {0}").format(self.doc.name))
-		headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+		headers = {"Authorization": f"Bearer {api_key
+	}", "Content-Type": "application/json"
+	}
 		if self.doc.api_version:
 			headers["api-version"] = self.doc.api_version
 		return headers
@@ -37,8 +39,8 @@ class OpenAICompatibleProvider(BaseAIProvider):
 			"model": model,
 			"messages": messages,
 			"temperature": float(temperature if temperature is not None else self.doc.temperature or 0.2),
-			"max_tokens": int(max_tokens or self.doc.max_tokens or 1024),
-		}
+			"max_tokens": int(max_tokens or self.doc.max_tokens or 1024)
+	}
 		resp = requests.post(
 			self._endpoint(),
 			headers=self._headers(),
@@ -60,5 +62,7 @@ class OpenAICompatibleProvider(BaseAIProvider):
 
 	def health_check(self) -> dict:
 		if not self.doc.api_key:
-			return {"ok": False, "message": "API key not configured"}
-		return {"ok": True, "endpoint": self._endpoint(), "model": self.doc.model_name}
+			return {"ok": False, "message": "API key not configured"
+	}
+		return {"ok": True, "endpoint": self._endpoint(), "model": self.doc.model_name
+	}
