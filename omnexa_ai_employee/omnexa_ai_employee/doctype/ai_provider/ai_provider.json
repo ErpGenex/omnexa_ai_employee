@@ -1,0 +1,61 @@
+{
+	"actions": [],
+	"autoname": "field:provider_name",
+	"creation": "2026-06-24 18:00:00.000000",
+	"doctype": "DocType",
+	"editable_grid": 1,
+	"engine": "InnoDB",
+	"field_order": [
+		"enabled",
+		"provider_name",
+		"provider_type",
+		"route_target",
+		"is_default",
+		"base_url",
+		"model_name",
+		"api_key",
+		"api_version",
+		"temperature",
+		"top_p",
+		"context_window",
+		"max_tokens",
+		"timeout_seconds"
+	],
+	"fields": [
+		{"fieldname": "enabled", "fieldtype": "Check", "label": "Enabled", "default": "1"},
+		{"fieldname": "provider_name", "fieldtype": "Data", "label": "Provider Name", "reqd": 1, "unique": 1},
+		{
+			"fieldname": "provider_type",
+			"fieldtype": "Select",
+			"label": "Provider Type",
+			"options": "Ollama\nOpenAI\nClaude\nGemini\nDeepSeek\nKimi\nAzure OpenAI\nOpen WebUI\nLM Studio\nvLLM",
+			"reqd": 1
+		},
+		{
+			"fieldname": "route_target",
+			"fieldtype": "Select",
+			"label": "Route Target",
+			"options": "Local\nCloud",
+			"default": "Local",
+			"reqd": 1
+		},
+		{"fieldname": "is_default", "fieldtype": "Check", "label": "Default for Route"},
+		{"fieldname": "base_url", "fieldtype": "Data", "label": "Base URL", "description": "For Ollama: models are auto-discovered when URL is set"},
+		{
+			"fieldname": "model_name",
+			"fieldtype": "Select",
+			"label": "Model",
+			"description": "Populated automatically from the provider URL"
+		},
+		{"fieldname": "api_key", "fieldtype": "Password", "label": "API Key"},
+		{"fieldname": "api_version", "fieldtype": "Data", "label": "API Version"},
+		{"fieldname": "temperature", "fieldtype": "Float", "label": "Temperature", "default": "0.2"},
+		{"fieldname": "top_p", "fieldtype": "Float", "label": "Top P", "default": "1"},
+		{"fieldname": "context_window", "fieldtype": "Int", "label": "Context Window", "default": "8192"},
+		{"fieldname": "max_tokens", "fieldtype": "Int", "label": "Max Tokens", "default": "1024"},
+		{"fieldname": "timeout_seconds", "fieldtype": "Int", "label": "Timeout (seconds)", "default": "60"}
+	],
+	"module": "Omnexa AI Employee",
+	"name": "AI Provider",
+	"permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

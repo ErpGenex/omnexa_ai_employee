@@ -1,0 +1,31 @@
+{
+	"actions": [],
+	"autoname": "field:agent_code",
+	"creation": "2026-06-24 18:00:00.000000",
+	"doctype": "DocType",
+	"editable_grid": 1,
+	"engine": "InnoDB",
+	"field_order": ["enabled", "agent_code", "agent_name", "agent_role", "description", "system_prompt", "default_provider"],
+	"fields": [
+		{"fieldname": "enabled", "fieldtype": "Check", "label": "Enabled", "default": "1"},
+		{"fieldname": "agent_code", "fieldtype": "Data", "label": "Agent Code", "reqd": 1, "unique": 1},
+		{"fieldname": "agent_name", "fieldtype": "Data", "label": "Agent Name", "reqd": 1, "in_list_view": 1},
+		{
+			"fieldname": "agent_role",
+			"fieldtype": "Select",
+			"label": "Agent Role",
+			"options": "Sales\nCustomer Service\nHealthcare\nEducation\nTourism\nFinance\nTrading\nHR\nManufacturing\nProjects\nOperations\nAccounting\nAgriculture\nConstruction\nRestaurant\nLegal\nRisk",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{"fieldname": "description", "fieldtype": "Small Text", "label": "Description"},
+		{"fieldname": "system_prompt", "fieldtype": "Text", "label": "System Prompt"},
+		{"fieldname": "default_provider", "fieldtype": "Link", "label": "Default Provider", "options": "AI Provider"}
+	],
+	"module": "Omnexa AI Employee",
+	"name": "AI Agent",
+	"permissions": [
+		{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+		{"role": "AI Employee User", "read": 1}
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"actions": [],
+	"autoname": "field:store_name",
+	"creation": "2026-06-24 18:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": ["enabled", "store_name", "store_type", "is_default", "host", "port", "api_key", "collection_name", "embedding_model"],
+	"fields": [
+		{"fieldname": "enabled", "fieldtype": "Check", "label": "Enabled", "default": "1"},
+		{"fieldname": "store_name", "fieldtype": "Data", "label": "Store Name", "reqd": 1, "unique": 1},
+		{
+			"fieldname": "store_type",
+			"fieldtype": "Select",
+			"label": "Store Type",
+			"options": "Qdrant\nWeaviate\nChroma\nPostgreSQL pgvector",
+			"reqd": 1
+		},
+		{"fieldname": "is_default", "fieldtype": "Check", "label": "Default"},
+		{"fieldname": "host", "fieldtype": "Data", "label": "Host"},
+		{"fieldname": "port", "fieldtype": "Int", "label": "Port"},
+		{"fieldname": "api_key", "fieldtype": "Password", "label": "API Key"},
+		{"fieldname": "collection_name", "fieldtype": "Data", "label": "Collection / Index"},
+		{"fieldname": "embedding_model", "fieldtype": "Data", "label": "Embedding Model"}
+	],
+	"module": "Omnexa AI Employee",
+	"name": "AI Vector Store",
+	"permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

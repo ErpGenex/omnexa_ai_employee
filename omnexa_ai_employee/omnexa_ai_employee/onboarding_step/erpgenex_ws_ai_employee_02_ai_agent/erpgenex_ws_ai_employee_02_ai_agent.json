@@ -1,0 +1,21 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create",
+ "creation": "2026-06-24 15:44:44.749111",
+ "description": "Create or review your first **AI Agent** record from this workspace.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-07-11 14:37:20.311163",
+ "modified_by": "Administrator",
+ "name": "ERPGENEX-WS-ai_employee-02-ai_agent",
+ "owner": "Administrator",
+ "reference_document": "AI Agent",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Get started with AI Agent",
+ "validate_action": 1
+}

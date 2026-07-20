@@ -1,0 +1,162 @@
+Account Name,حساب اسم
+Active Conversations,نشط Conversations
+Agent,Agent
+Agent Code,Agent كود
+Agent Name,Agent اسم
+Agent Role,Agent دور
+Agent Role (optional),Agent دور (optional)
+AI Agent,ذكاء اصطناعي Agent
+AI Agent {0} not found,ذكاء اصطناعي Agent { 0 } not found
+AI Agents,ذكاء اصطناعي Agents
+AI Channel Account,ذكاء اصطناعي Channel حساب
+AI Conversation,ذكاء اصطناعي Conversation
+AI Conversation Message,ذكاء اصطناعي Conversation Message
+AI Employee is disabled in settings.,ذكاء اصطناعي موظف is disabled in إعدادات.
+AI Employee Settings,ذكاء اصطناعي موظف إعدادات
+AI Employee Workcenter,ذكاء اصطناعي موظف Workcenter
+AI OCR Provider,ذكاء اصطناعي OCR Provider
+AI Provider,ذكاء اصطناعي Provider
+AI provider error: {0},ذكاء اصطناعي provider خطأ: { 0 }
+AI Provider {0} is disabled,ذكاء اصطناعي Provider { 0 } is disabled
+AI Providers,ذكاء اصطناعي Providers
+AI Routing Rule,ذكاء اصطناعي Routing Rule
+AI Vector Store,ذكاء اصطناعي Vector Store
+API Key,API مفتاح
+API Key / Access Token,API مفتاح وصول Token
+API key is required for provider {0},API مفتاح is required لـ provider { 0 }
+API Version,API إصدار
+Appointments,Appointments
+Base URL,Base URL
+Channel,Channel
+Chat Console,Chat Console
+Collection / Index,تحصيل Index
+Company and Branch are required for van sales.,شركة و فرع are required لـ van مبيعات.
+Connected,Connected
+Consumer Loan Application DocType not available.,استهلاكي قرض طلب Doc نوع not متاح.
+Content,Content
+Context Window,Context Window
+Conversation,Conversation
+Could not complete ERP action for {0},Could not complete ERP إجراء لـ { 0 }
+Could not reach Ollama or no models are installed.,Could not reach Ollama or no models are installed.
+Created Consumer Loan Application {0},Created استهلاكي قرض طلب { 0 }
+Created CRM Case Ticket {0},Created CRM حالة Ticket { 0 }
+Created draft HR Expense Claim {0},Created مسودة الموارد البشرية مصروف Claim { 0 }
+Created draft HR Leave Application {0},Created مسودة الموارد البشرية Leave طلب { 0 }
+Created draft Sales Quotation {0},Created مسودة مبيعات Quotation { 0 }
+Created draft Service Contract {0},Created مسودة خدمة عقد { 0 }
+Created draft Trading Distribution Order {0},Created مسودة تجارة Distribution Order { 0 }
+Created draft Trading Van Sales Invoice {0},Created مسودة تجارة Van مبيعات فاتورة { 0 }
+Created draft Work Order {0},Created مسودة Work Order { 0 }
+Created Healthcare Appointment {0},Created رعاية صحية Appointment { 0 }
+Created PM Issue Log {0},Created PM Issue سجل { 0 }
+Created Restaurant Order {0},Created مطعم Order { 0 }
+Created Service Ticket {0},Created خدمة Ticket { 0 }
+Customer,العميل
+Customer Profile and Sales Representative are required for van sales.,عميل ملف و مبيعات Representative are required لـ van مبيعات.
+Default,افتراضي
+Default Agent,افتراضي Agent
+Default for Route,افتراضي لـ Route
+Default Provider,افتراضي Provider
+Default Route Target,افتراضي Route Target
+Default Routing Strategy,افتراضي Routing Strategy
+Description,الوصف
+Discover Models,Discover Models
+Discover Ollama Models,Discover Ollama Models
+Discovering models...,Discovering models...
+Discovery failed,Discovery فشل
+Embedding Model,Embedding Model
+Enable OCR,Enable OCR
+Enable RAG / Vector Search,Enable RAG Vector Search
+Enable Voice AI,Enable Voice ذكاء اصطناعي
+Enabled,Enabled
+Endpoint URL,Endpoint URL
+Enter a Base URL first.,Enter a Base URL first.
+Enter Ollama Base URL first.,Enter Ollama Base URL first.
+Error,خطأ
+Escalation Email,Escalation بريد إلكتروني
+Failed to load dashboard,فشل إلى load لوحة معلومات
+file_url is required,file url is required
+For Ollama: models are auto-discovered when URL is set,لـ Ollama: models are auto - discovered when URL is set
+Gap Analysis,Gap Analysis
+Healthcare Appointment DocType not available.,رعاية صحية Appointment Doc نوع not متاح.
+Host,Host
+HR Expense Claim DocType not available.,الموارد البشرية مصروف Claim Doc نوع not متاح.
+HR Leave Application DocType not available.,الموارد البشرية Leave طلب Doc نوع not متاح.
+"Install Ollama on the server, run","Install Ollama on the server, run"
+Languages,Languages
+Last Activity,Last نشاط
+Last Provider,Last Provider
+Loading AI Employee dashboard...,Loading ذكاء اصطناعي موظف لوحة معلومات...
+Local or remote Ollama API (e.g. http://192.168.1.2:11434),Local or remote Ollama API (e. g. http: 192. 168. 1. 2: 11434)
+Match Keywords (comma-separated),Match Keywords (comma - separated)
+Max Tokens,أقصى Tokens
+Meta Cloud API phone_number_id,Meta Cloud API phone رقم معرف
+Meta JSON,Meta JSON
+Model,Model
+Model discovery not implemented for {0},Model discovery not implemented لـ { 0 }
+Models,Models
+No AI provider configured for route {0}. Add an AI Provider record.,No ذكاء اصطناعي provider configured لـ route { 0 }. إضافة an ذكاء اصطناعي Provider سجل.
+No critical gaps,No critical gaps
+No Employee found for expense claim.,No موظف found لـ مصروف claim.
+No Employee found for leave application.,No موظف found لـ leave طلب.
+No enabled WhatsApp channel account configured.,No enabled Whats App channel حساب configured.
+No Item found for document line.,No صنف found لـ مستند line.
+No models,No models
+No models found,No models found
+No models pulled,No models pulled
+No OCR provider configured. Create AI OCR Provider.,No OCR provider configured. Create ذكاء اصطناعي OCR Provider.
+No Project Contract found for PM Issue Log.,No مشروع عقد found لـ PM Issue سجل.
+No providers configured,No providers configured
+No support ticket DocType available or missing Customer Profile.,No support ticket Doc نوع متاح or missing عميل ملف.
+Not reachable,Not reachable
+OCR Engine,OCR محرك
+OCR provider {0} registered. Wire engine SDK in deployment.,OCR provider { 0 } registered. Wire محرك SDK in deployment.
+offline,offline
+Ollama (Local AI),Ollama (Local ذكاء اصطناعي)
+Ollama Base URL,Ollama Base URL
+Ollama Default Model,Ollama افتراضي Model
+Ollama Models,Ollama Models
+Ollama provider synced,Ollama provider synced
+Ollama unreachable,Ollama unreachable
+Omnexa AI Employee,Omnexa ذكاء اصطناعي موظف
+online,online
+or set Ollama Base URL in AI Employee Settings for a remote host.,or set Ollama Base URL in ذكاء اصطناعي موظف إعدادات لـ a remote host.
+Orders Generated,Orders Generated
+Phone / Handle,Phone Handle
+PM Issue Log DocType not available.,PM Issue سجل Doc نوع not متاح.
+Populated automatically from the provider URL,Populated automatically from the provider URL
+Port,Port
+Priority,Priority
+Provider Name,Provider اسم
+Provider Type,Provider نوع
+Refresh Status,Refresh حالة
+Restaurant Order DocType not available.,مطعم Order Doc نوع not متاح.
+Role,الدور
+"Route Plan, Sales Representative, and Customer Profile are required for distribution orders.","Route خطة, مبيعات Representative, و عميل ملف are required لـ distribution orders."
+Route Target,Route Target
+Rule Code,Rule كود
+Run Ecosystem Audit,Run Ecosystem تدقيق
+Run Ecosystem Audit on Migrate,Run Ecosystem تدقيق on Migrate
+Sales Quotation DocType not available.,مبيعات Quotation Doc نوع not متاح.
+Send,Send
+Service Contract DocType not available.,خدمة عقد Doc نوع not متاح.
+Set in Meta: /api/method/omnexa_ai_employee.api.whatsapp_webhook,Set in Meta: api method omnexa ذكاء اصطناعي موظف. api. whatsapp webhook
+Status,الحالة
+Store Name,Store اسم
+Store Type,Store نوع
+Sync Ollama Provider,Sync Ollama Provider
+System Prompt,النظام Prompt
+Temperature,Temperature
+Timeout (seconds),Timeout (seconds)
+Title,العنوان
+Top P,Top P
+Trading Distribution Order DocType not available.,تجارة Distribution Order Doc نوع not متاح.
+Trading Van Sales Invoice DocType not available.,تجارة Van مبيعات فاتورة Doc نوع not متاح.
+Type a message...,نوع a message...
+Unauthorized webhook call,Unauthorized webhook call
+Unsupported provider type: {0},Unsupported provider نوع: { 0 }
+Used when Ollama is reachable; auto-picked from installed models if missing,Used when Ollama is reachable; auto - picked from installed models if missing
+Webhook URL,Webhook URL
+Webhook Verify Token,Webhook Verify Token
+WhatsApp Phone Number ID,Whats App Phone رقم معرف
+Work Order DocType not available.,Work Order Doc نوع not متاح.

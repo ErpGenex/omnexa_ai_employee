@@ -1,0 +1,37 @@
+{
+	"actions": [],
+	"autoname": "format:AI-CONV-{#####}",
+	"creation": "2026-06-24 18:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": ["agent", "agent_role", "channel", "customer", "status", "last_provider", "last_activity"],
+	"fields": [
+		{"fieldname": "agent", "fieldtype": "Link", "label": "Agent", "options": "AI Agent", "in_list_view": 1},
+		{"fieldname": "agent_role", "fieldtype": "Data", "label": "Agent Role", "in_list_view": 1},
+		{
+			"fieldname": "channel",
+			"fieldtype": "Select",
+			"label": "Channel",
+			"options": "Desk\nWhatsApp\nTelegram\nSMS\nEmail\nWeb Chat\nVoice",
+			"default": "Desk",
+			"in_list_view": 1
+		},
+		{"fieldname": "customer", "fieldtype": "Link", "label": "Customer", "options": "Customer"},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Open\nClosed\nEscalated\nError",
+			"default": "Open",
+			"in_list_view": 1
+		},
+		{"fieldname": "last_provider", "fieldtype": "Link", "label": "Last Provider", "options": "AI Provider"},
+		{"fieldname": "last_activity", "fieldtype": "Datetime", "label": "Last Activity"}
+	],
+	"module": "Omnexa AI Employee",
+	"name": "AI Conversation",
+	"permissions": [
+		{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+		{"role": "AI Employee User", "read": 1, "write": 1, "create": 1}
+	]
+}

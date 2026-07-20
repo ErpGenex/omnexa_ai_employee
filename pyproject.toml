@@ -1,0 +1,27 @@
+[project]
+name = "omnexa_ai_employee"
+authors = [
+    { name = "ErpGenEx", email = "dev@erpgenex.com"}
+]
+description = "Autonomous AI employee for the ERPGENEX ecosystem"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = []
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "UP", "B", "RUF"]
+ignore = ["E501", "F401", "B904"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
+docstring-code-format = true

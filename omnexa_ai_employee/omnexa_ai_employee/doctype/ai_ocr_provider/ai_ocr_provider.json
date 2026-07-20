@@ -1,0 +1,26 @@
+{
+	"actions": [],
+	"autoname": "field:provider_name",
+	"creation": "2026-06-24 18:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": ["enabled", "provider_name", "engine", "is_default", "api_key", "endpoint_url", "languages"],
+	"fields": [
+		{"fieldname": "enabled", "fieldtype": "Check", "label": "Enabled", "default": "1"},
+		{"fieldname": "provider_name", "fieldtype": "Data", "label": "Provider Name", "reqd": 1, "unique": 1},
+		{
+			"fieldname": "engine",
+			"fieldtype": "Select",
+			"label": "OCR Engine",
+			"options": "PaddleOCR\nTesseract\nEasyOCR\nAzure OCR",
+			"reqd": 1
+		},
+		{"fieldname": "is_default", "fieldtype": "Check", "label": "Default"},
+		{"fieldname": "api_key", "fieldtype": "Password", "label": "API Key"},
+		{"fieldname": "endpoint_url", "fieldtype": "Data", "label": "Endpoint URL"},
+		{"fieldname": "languages", "fieldtype": "Data", "label": "Languages", "default": "ar,en"}
+	],
+	"module": "Omnexa AI Employee",
+	"name": "AI OCR Provider",
+	"permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}
