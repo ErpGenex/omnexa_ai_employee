@@ -14,6 +14,10 @@ app_include_js = [
 after_install = "omnexa_ai_employee.install.after_install"
 after_migrate = "omnexa_ai_employee.install.after_migrate"
 
+permission_query_conditions = {
+	"*": "omnexa_core.omnexa_core.permissions.global_branch_permission_query_conditions",
+}
+
 fixtures = [
 	{"dt": "Role", "filters": [["name", "in", ["AI Employee User"]]]},
 ]
