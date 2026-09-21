@@ -1,37 +1,37 @@
-Account Name,بند واجهة
+Account Name,اسم حساب
 Accounting,المحاسبة
 Accounts Payable,الذمم الدائنة
 Accounts Receivable,الذمم المدينة
 Actions,إجراءات
 Administrator,المسؤول
 Agent,وكيل
-Agent Code,وكيل الرمز
-Agent Name,وكيل الاسم
+Agent Code,رمز وكيل
+Agent Name,اسم وكيل
 Agent Role,وكيل الدور
-Agent Role (optional),بند واجهة
+Agent Role (optional),وكيل الدور (اختياري)
 Agriculture,الزراعة
 AI & Intelligence,الذكاء الاصطناعي والتحليلات
 AI Agent,AI وكيل
 AI Agent Register,سجل AI وكيل
 AI Agent Summary,ملخص AI وكيل
-AI Agent {0} not found,AI — بند واجهة
-AI Channel Account,AI — بند واجهة
-AI Channel Account Register,سجل AI — بند واجهة
-AI Conversation,AI — بند واجهة
-AI Conversation Message,AI — بند واجهة
-AI Conversation Message Register,سجل AI — بند واجهة
-AI Conversation Register,سجل AI — بند واجهة
+AI Agent {0} not found,لم يُعثر على AI وكيل {0}
+AI Channel Account,AI قناة حساب
+AI Channel Account Register,سجل AI قناة حساب
+AI Conversation,AI Conversation
+AI Conversation Message,AI Conversation Message
+AI Conversation Message Register,AI Conversation Message Register
+AI Conversation Register,AI Conversation Register
 AI Employee,AI الموظف
-AI Employee is disabled in settings.,AI الموظف is معطّل في الإعدادات .
+AI Employee is disabled in settings.,AI الموظف هو معطّل في إعدادات.
 AI Employee Settings,إعدادات AI الموظف
 AI Employee User,AI الموظف مستخدم
 AI Employee Workcenter,AI الموظف مركز العمل
-AI OCR Provider,AI — بند واجهة
-AI OCR Provider Register,سجل AI — بند واجهة
-AI Provider,AI مزود
-AI provider error: {0},AI مزود خطأ : { 0 }
-AI Provider Register,سجل AI مزود
-AI Provider {0} is disabled,AI مزود { 0 } is معطّل
+AI OCR Provider,AI OCR Provider
+AI OCR Provider Register,AI OCR Provider Register
+AI Provider,AI المزود
+AI provider error: {0},AI مزود خطأ: {0}
+AI Provider Register,سجل AI المزود
+AI Provider {0} is disabled,AI المزود {0} هو معطّل
 AI Routing Rule,AI توجيه قاعدة
 AI Routing Rule Register,سجل AI توجيه قاعدة
 AI Vector Store,AI متجه مخزن
@@ -40,21 +40,23 @@ All,الكل
 All activities,كل الأنشطة
 All branches,كل الفروع
 ALM,إدارة الأصول والخصوم
-API Key,API — بند واجهة
-API Key / Access Token,API — بند واجهة / بند واجهة
-API key is required for provider {0},API — بند واجهة
-API Version,API إصدار
+API,واجهة API
+API Key,واجهة API مفتاح
+API Key / Access Token,واجهة API مفتاح / الوصول رمز
+API key is required for provider {0},واجهة API مفتاح مطلوب لـ مزود {0}
+API Version,واجهة API إصدار
+APPROVED,معتمد
 Asset Insurance,تأمين الأصول
 Assigned To,مُسند إلى
 Assigned To Me,المُسند إليّ
 Assistant,مساعد
 Attachments,المرفقات
 Audit,التدقيق
-Azure OCR,بند واجهة
-Azure OpenAI,بند واجهة
+Azure OCR,Azure OCR
+Azure OpenAI,Azure Open AI
 Balance Sheet,الميزانية العمومية
 Bank Unmatched Statement Lines,بنود كشف بنك غير مطابقة
-Base URL,URL — بند واجهة
+Base URL,Base URL
 Billing & collections,الفوترة والتحصيل
 Bookings & registration,الحجوزات والتسجيل
 BOQ,جدول الكميات
@@ -70,16 +72,16 @@ Card Break,قسم
 Channel,قناة
 Chart,مخطط
 Chart of Accounts,دليل الحسابات
-Chroma,بند واجهة
-Claude,بند واجهة
+Chroma,Chroma
+Claude,Claude
 Closed,مغلق
-Cloud,بند واجهة
-Cloud Only,بند واجهة
-Collection / Index,بند واجهة / بند واجهة
+Cloud,سحابة
+Cloud Only,سحابة فقط
+Collection / Index,تحصيل / مؤشر
 Commission Accrual,استحقاق العمولات
 Commission Schedule,جدول العمولات
 Company,الشركة
-Company and Branch are required for van sales.,بند واجهة
+Company and Branch are required for van sales.,Company and Branch are required for van sales.
 Completed,مكتمل
 Compliance checks complete,اكتملت فحوصات الامتثال
 Compliance Exceptions,استثناءات الامتثال
@@ -90,31 +92,31 @@ Compliance Reports,تقارير الامتثال
 Construction,المقاولات
 Construction & Engineering,المقاولات والهندسة
 Consumer Finance,التمويل الاستهلاكي
-Consumer Loan Application DocType not available.,بند واجهة
-Content,بند واجهة
-Context Window,بند واجهة
-Conversation,بند واجهة
+Consumer Loan Application DocType not available.,Consumer Loan Application Doc Type not available.
+Content,محتوى
+Context Window,Context Window
+Conversation,Conversation
 Core ERP,ERP الأساسي
 Cost Center,مركز التكلفة
-Could not complete ERP action for {0},ERP — بند واجهة
+Could not complete ERP action for {0},تعذّر مكتمل ERP إجراء لـ {0}
 Country,الدولة
 Create,إنشاء
 Create or review your first **AI Agent** record from this workspace.,أنشئ أو راجع أول سجل **AI وكيل** من مساحة العمل هذه.
-Create or review your first **AI Conversation** record from this workspace.,أنشئ أو راجع أول سجل **AI — بند واجهة** من مساحة العمل هذه.
-Create or review your first **AI Provider** record from this workspace.,أنشئ أو راجع أول سجل **AI مزود** من مساحة العمل هذه.
-Created Consumer Loan Application {0},بند واجهة
-Created CRM Case Ticket {0},CRM — بند واجهة
-Created draft HR Expense Claim {0},HR — بند واجهة
-Created draft HR Leave Application {0},HR — بند واجهة
-Created draft Sales Quotation {0},بند واجهة
-Created draft Service Contract {0},بند واجهة
-Created draft Trading Distribution Order {0},بند واجهة
-Created draft Trading Van Sales Invoice {0},بند واجهة
-Created draft Work Order {0},تاريخ الإنشاء مسودة عمل أمر { 0 }
+Create or review your first **AI Conversation** record from this workspace.,Create or review your first **AI Conversation** record from this workspace.
+Create or review your first **AI Provider** record from this workspace.,أنشئ أو راجع أول سجل **AI المزود** من مساحة العمل هذه.
+Created Consumer Loan Application {0},تاريخ الإنشاء مستهلك قرض تطبيق {0}
+Created CRM Case Ticket {0},Created CRM Case Ticket {0}
+Created draft HR Expense Claim {0},تاريخ الإنشاء مسودة الموارد البشرية المصروف مطالبة {0}
+Created draft HR Leave Application {0},تاريخ الإنشاء مسودة الموارد البشرية إجازة تطبيق {0}
+Created draft Sales Quotation {0},تاريخ الإنشاء مسودة مبيعات عرض سعر {0}
+Created draft Service Contract {0},تاريخ الإنشاء مسودة خدمة عقد {0}
+Created draft Trading Distribution Order {0},Created draft Trading Distribution Order {0}
+Created draft Trading Van Sales Invoice {0},Created draft Trading Van Sales Invoice {0}
+Created draft Work Order {0},تاريخ الإنشاء مسودة عمل أمر {0}
 Created Healthcare Appointment {0},تاريخ الإنشاء الرعاية الصحية موعد {0}
-Created PM Issue Log {0},PM — بند واجهة
+Created PM Issue Log {0},تاريخ الإنشاء م مشكلة السجل {0}
 Created Restaurant Order {0},تاريخ الإنشاء المطاعم أمر {0}
-Created Service Ticket {0},بند واجهة
+Created Service Ticket {0},Created Service Ticket {0}
 Credit Engine,محرك الائتمان
 Credit Risk,مخاطر الائتمان
 CRM,إدارة العملاء
@@ -122,16 +124,16 @@ Cross-module operations,عمليات متكاملة
 Currency,العملة
 Custom Documents,المستندات المخصصة
 Customer,العميل
-Customer Profile and Sales Representative are required for van sales.,بند واجهة
-Customer Service,بند واجهة
+Customer Profile and Sales Representative are required for van sales.,Customer Profile and Sales Representative are required for van sales.
+Customer Service,العميل خدمة
 Dashboard,لوحة معلومات
-DeepSeek,بند واجهة
-Default,بند واجهة
-Default Agent,بند واجهة
-Default for Route,بند واجهة
-Default Provider,بند واجهة
-Default Route Target,بند واجهة
-Default Routing Strategy,بند واجهة
+DeepSeek,Deep Seek
+Default,افتراضي
+Default Agent,افتراضي وكيل
+Default for Route,افتراضي لـ مسار
+Default Provider,افتراضي المزود
+Default Route Target,افتراضي مسار هدف
+Default Routing Strategy,افتراضي توجيه استراتيجية
 Delete,حذف
 Description,الوصف
 Design & quantities (BOQ),التصميم والكميات (جدول الكميات)
@@ -141,17 +143,18 @@ Development Project,مشروع تطوير
 Development Project Register,سجل مشاريع التطوير
 Development project register,سجل مشاريع التطوير
 Documents & Integration,المستندات والتكامل
+DRAFT,مسودة
 E-Invoice,الفاتورة الإلكترونية
-EasyOCR,بند واجهة
+EasyOCR,Easy OCR
 Edit,تعديل
 Education,التعليم
 Email,البريد الإلكتروني
-Embedding Model,بند واجهة
-Enable OCR,بند واجهة
-Enable RAG / Vector Search,تفعيل RAG / متجه بحث
-Enable Voice AI,AI — بند واجهة
+Embedding Model,Embedding Model
+Enable OCR,Enable OCR
+Enable RAG / Vector Search,تفعيل RAG / البحث المتجه
+Enable Voice AI,Enable Voice AI
 Enabled,مفعّل
-Endpoint URL,URL — بند واجهة
+Endpoint URL,نقطة نهاية URL
 Engineering Consulting,الاستشارات الهندسية
 Erpgenex Property Mgmt,إدارة العقارات
 Erpgenex Realestate Dev,التطوير العقاري
@@ -159,18 +162,19 @@ Erpgenex Realestate Sales,التسويق العقاري
 ERPGENEX — Core ERP,ERPGENEX — ERP الأساسي
 ERPGENEX — Dashboard,ERPGENEX — لوحة المعلومات
 Error,خطأ
-Escalated,بند واجهة
-Escalation Email,بند واجهة
+Escalated,Escalated
+Escalation Email,Escalation Email
 Escalation Rule,قاعدة تصعيد الإيجار
 Event,حدث
 Executive Dashboard,لوحة المدير التنفيذية
 Explore this workspace,استكشف مساحة العمل
-Facebook Messenger,بند واجهة
+Facebook Messenger,Facebook Messenger
 Factoring,التخصيم
 Field PWA,تطبيق الميدان
-file_url is required,ملف رابط is مطلوب
+file_url is required,ملف رابط مطلوب
 Filters,المرشحات
-Finance,بند واجهة
+Filters Applied,الفلاتر المطبقة
+Finance,مالية
 Finance Control Exceptions,استثناءات الضوابط المالية
 Finance Control Violations,مخالفات الضوابط المالية
 Finance Controls,الضوابط المالية
@@ -179,14 +183,16 @@ Finance Group,المجموعة المالية
 Finance SoD Blocks,حظر فصل المهام (SoD)
 Finance Workcenter,مركز عمل المالية
 Fixed Assets,الأصول الثابتة
-For Ollama: models are auto-discovered when URL is set,URL — بند واجهة
+For Ollama: models are auto-discovered when URL is set,For Ollama: models are auto-discovered when URL is set
 Form,نموذج
 Further,المزيد
-Gemini,بند واجهة
+Gemini,Gemini
 General Ledger,دفتر الأستاذ العام
-Get started with AI Agent,AI — بند واجهة
-Get started with AI Conversation,AI — بند واجهة
-Get started with AI Provider,AI — بند واجهة
+Generated at,أُنشئ في
+Generated by,أُنشئ بواسطة
+Get started with AI Agent,ابدأ بـ AI وكيل
+Get started with AI Conversation,Get started with AI Conversation
+Get started with AI Provider,ابدأ بـ AI المزود
 GL Account,حساب GL
 Global Defaults,الإعدادات العامة
 Governance,الحوكمة
@@ -195,19 +201,19 @@ Guest,زائر
 Handover & defects (snagging),التسليم والعيوب
 Handover Package,حزمة التسليم
 Healthcare,الرعاية الصحية
-Healthcare Appointment DocType not available.,بند واجهة
+Healthcare Appointment DocType not available.,Healthcare Appointment Doc Type not available.
 Help,مساعدة
 Home,الرئيسية
-Host,بند واجهة
+Host,مضيف
 HR,الموارد البشرية
-HR Expense Claim DocType not available.,HR — بند واجهة
-HR Leave Application DocType not available.,HR — بند واجهة
-Hybrid,بند واجهة
+HR Expense Claim DocType not available.,HR Expense Claim Doc Type not available.
+HR Leave Application DocType not available.,HR Leave Application Doc Type not available.
+Hybrid,Hybrid
 IFRS 16 Liability,التزام الإيجار IFRS 16
 In Progress,قيد التنفيذ
 Industry Solutions,حلول القطاعات
 Insights,رؤى وتحليلات
-Instagram,بند واجهة
+Instagram,Instagram
 Inventory & development context,المخزون وسياق التطوير
 Inventory KPI Dashboard,لوحة مؤشرات المخزون
 Inventory KPIs,مؤشرات المخزون
@@ -217,14 +223,14 @@ Inventory Stock Items,أصناف المخزون
 Item,الصنف
 Journal Entry,قيد يومية
 Jump to the **AI Workcenter** page.,انتقل إلى صفحة **AI مركز العمل**.
-Kimi,بند واجهة
+Kimi,Kimi
 Land & project charter,الأرض وميثاق المشروع
 Land Parcel,قطعة أرض
 Language,اللغة
-Languages,بند واجهة
-Last Activity,بند واجهة
+Languages,Languages
+Last Activity,آخر النشاط
 Last Month,الشهر الماضي
-Last Provider,بند واجهة
+Last Provider,آخر المزود
 Last Week,الأسبوع الماضي
 Lead acquisition & qualification,اكتساب العملاء وتأهيلهم
 Leasing & occupancy (IFRS 16 / IPSAS rent),التأجير والإشغال (IFRS 16 / IPSAS)
@@ -232,44 +238,44 @@ Leasing Finance,التمويل التأجيري
 Leasing Mandate,تفويض تأجير
 Legal,القانون
 List,قائمة
-LM Studio,بند واجهة
+LM Studio,LM Studio
 Local,محلي
-Local Only,بند واجهة
-Local or remote Ollama API (e.g. http://192.168.1.2:11434),API — بند واجهة
+Local Only,محلي فقط
+Local or remote Ollama API (e.g. http://192.168.1.2:11434),Local or remote Ollama API (e.g. http://192.168.1.2:11434)
 Login,تسجيل الدخول
 Logout,تسجيل الخروج
 Maintenance — service requests,الصيانة — طلبات الخدمة
 Management Agreement,اتفاقية إدارة
 Manufacturing,التصنيع
-Match Keywords (comma-separated),بند واجهة
-Max Tokens,بند واجهة
+Match Keywords (comma-separated),Match Keywords (comma-separated)
+Max Tokens,Max Tokens
 Menu,القائمة
-Meta Cloud API phone_number_id,API — بند واجهة
-Meta JSON,JSON — بند واجهة
-Model,بند واجهة
-Model discovery not implemented for {0},بند واجهة
+Meta Cloud API phone_number_id,Meta Cloud API phone_number_id
+Meta JSON,Meta JSON
+Model,نموذج
+Model discovery not implemented for {0},Model discovery not implemented for {0}
 Modified,تاريخ التعديل
 Mortgage Finance,التمويل العقاري
 My work,عملي
 Name,الاسم
 New,جديد
-No AI provider configured for route {0}. Add an AI Provider record.,AI AI — بند واجهة
-No Employee found for expense claim.,بند واجهة
-No Employee found for leave application.,بند واجهة
-No enabled WhatsApp channel account configured.,بند واجهة
-No Item found for document line.,بند واجهة
-No OCR provider configured. Create AI OCR Provider.,AI — بند واجهة
-No Project Contract found for PM Issue Log.,PM — بند واجهة
-No support ticket DocType available or missing Customer Profile.,بند واجهة
+No AI provider configured for route {0}. Add an AI Provider record.,لا AI مزود مُعدّ لـ مسار {0}. إضافة an AI المزود سجل.
+No Employee found for expense claim.,لا الموظف وُجد لـ مصروف مطالبة.
+No Employee found for leave application.,لا الموظف وُجد لـ إجازة طلب.
+No enabled WhatsApp channel account configured.,No enabled Whats App channel account configured.
+No Item found for document line.,لا الصنف وُجد لـ مستند خط.
+No OCR provider configured. Create AI OCR Provider.,No OCR provider configured. Create AI OCR Provider.
+No Project Contract found for PM Issue Log.,لا مشروع عقد وُجد لـ م مشكلة السجل.
+No support ticket DocType available or missing Customer Profile.,No support ticket Doc Type available or missing Customer Profile.
 None,لا شيء
 Notifications,الإشعارات
 Number Card,بطاقة رقمية
 Occupancy,الإشغال
-OCR Engine,بند واجهة
-OCR provider {0} registered. Wire engine SDK in deployment.,بند واجهة
-Ollama,بند واجهة
-Ollama Base URL,URL — بند واجهة
-Ollama Default Model,بند واجهة
+OCR Engine,OCR Engine
+OCR provider {0} registered. Wire engine SDK in deployment.,OCR provider {0} registered. Wire engine SDK in deployment.
+Ollama,Ollama
+Ollama Base URL,Ollama Base URL
+Ollama Default Model,Ollama Default Model
 Omnexa Accounting Settings,إعدادات محاسبة Omnexa
 Omnexa AI Employee Document Summary,Omnexa AI الموظف المستند ملخص
 Omnexa Marketplace Settings,إعدادات سوق Omnexa
@@ -280,23 +286,26 @@ Omnexa Stock Settings,إعدادات مخزون Omnexa
 Open,مفتوح
 Open AI Workcenter,فتح AI مركز العمل
 Open report Compliance Exceptions Dashboard,فتح تقرير لوحة استثناءات الامتثال
-Open WebUI,بند واجهة
-OpenAI,بند واجهة
+Open WebUI,Open Web UI
+OpenAI,فتح AI
 Operating Scenarios,سيناريوهات التشغيل
 Operational Risk,المخاطر التشغيلية
-Operations,بند واجهة
+Operations,عمليات
 Other,أخرى
 Overdue,متأخر
 Owner reporting & trust accounting,تقارير الملاك والحسابات الائتمانية
 Owner Statement,كشف حساب المالك
-PaddleOCR,بند واجهة
+PaddleOCR,Paddle OCR
+Page,صفحة
 Payment Entry,سند قبض/صرف
 Payment Plan Item,بند خطة السداد
+PENDING,قيد الانتظار
 Pending,قيد الانتظار
+PENDING_APPROVAL,قيد الموافقة
 Permit Milestone,معلم التصريح
-Phone / Handle,الهاتف / بند واجهة
+Phone / Handle,Phone / Handle
 Platform & Administration,المنصة والإدارة
-PM Issue Log DocType not available.,PM — بند واجهة
+PM Issue Log DocType not available.,PM Issue Log Doc Type not available.
 PMC Lease Liability Schedule,جدول التزام الإيجار IFRS 16
 PMC Leasing Mandate,تفويض تأجير
 PMC Management Agreement,اتفاقية إدارة
@@ -310,26 +319,26 @@ PMC Rent Aging,أعمار الإيجارات
 PMC Rent Billing Register,سجل فوترة الإيجار
 PMC Rent Roll,سجل الإيجارات
 PMC Rental Contract Register,سجل عقود الإيجار
-Populated automatically from the provider URL,URL — بند واجهة
-Port,منفذ
+Populated automatically from the provider URL,Populated automatically from the provider URL
+Port,المنفذ
 Portfolio & asset registry,المحفظة وسجل الأصول
-PostgreSQL pgvector,بند واجهة
+PostgreSQL pgvector,Postgre SQL pgvector
 Priority,الأولوية
 Profile,الملف الشخصي
 Profit and Loss,الأرباح والخسائر
 Project EV,القيمة المكتسبة للمشروع
-Projects,بند واجهة
+Projects,مشاريع
 Projects & Services,المشاريع والخدمات
 Projects PM,إدارة المشاريع
 Property,عقار
 Property Management,إدارة العقارات
 Property Sales Booking Register,سجل حجوزات البيع
 Property Sales Lead,عميل مبيعات عقارية
-Provider Name,مزود الاسم
-Provider Type,مزود النوع
+Provider Name,اسم المزود
+Provider Type,نوع المزود
 Purchase Invoice,فاتورة شراء
 Purchase Register,سجل المشتريات
-Qdrant,بند واجهة
+Qdrant,Qdrant
 RE BOQ,جدول كميات التطوير
 RE Development,التطوير العقاري
 RE Handover Package,حزمة التسليم
@@ -342,6 +351,7 @@ RE unit inventory (sales),مخزون وحدات البيع
 RE Unit Inventory Overview,نظرة عامة على مخزون الوحدات
 Real Estate,العقارات
 Refresh,تحديث
+REJECTED,مرفوض
 Reload,إعادة تحميل
 Rent Aging,أعمار الإيجارات
 Rent billing register,سجل فوترة الإيجار
@@ -353,17 +363,17 @@ Report,تقرير
 Reservation register,سجل الحجوزات
 Reservations & unit holds,الحجوزات وحجز الوحدات
 Restaurant,المطاعم
-Restaurant Order DocType not available.,بند واجهة
+Restaurant Order DocType not available.,Restaurant Order Doc Type not available.
 "Return here for shortcuts, charts, and lists for **AI Employee**.",ارجع هنا للاختصارات والمخططات والقوائم لـ **AI الموظف**.
 "Return here for shortcuts, charts, and lists for **Audit & Compliance**.",ارجع هنا للاختصارات والمخططات والقوائم لـ **التدقيق والامتثال**.
 "Return here for shortcuts, charts, and lists for **Core ERP**.",ارجع هنا للاختصارات والمخططات والقوائم لـ **ERP الأساسي**.
 Risk,مخاطر
 Role,الدور
-"Route Plan, Sales Representative, and Customer Profile are required for distribution orders.",بند واجهة
-Route Target,بند واجهة
-Rule Code,قاعدة الرمز
-Run Ecosystem Audit on Migrate,بند واجهة
-Sales,بند واجهة
+"Route Plan, Sales Representative, and Customer Profile are required for distribution orders.","Route Plan, Sales Representative, and Customer Profile are required for distribution orders."
+Route Target,مسار هدف
+Rule Code,رمز قاعدة
+Run Ecosystem Audit on Migrate,Run Ecosystem Audit on Migrate
+Sales,مبيعات
 Sales Booking,حجز بيع
 Sales booking register,سجل حجوزات البيع
 Sales Commission Accrual,استحقاق عمولات المبيعات
@@ -371,15 +381,15 @@ Sales Commission Schedule,جدول عمولات المبيعات
 Sales Invoice,فاتورة مبيعات
 Sales Lead,عميل محتمل
 Sales Portal,بوابة المبيعات
-Sales Quotation DocType not available.,بند واجهة
+Sales Quotation DocType not available.,Sales Quotation Doc Type not available.
 Sales Register,سجل المبيعات
 Save,حفظ
 Search or type a command,ابحث أو اكتب أمرًا
 Search or type a command ({0}),ابحث أو اكتب أمرًا ({0})
 Sell,المبيعات
-Service Contract DocType not available.,بند واجهة
+Service Contract DocType not available.,Service Contract Doc Type not available.
 Services,الخدمات
-Set in Meta: /api/method/omnexa_ai_employee.api.whatsapp_webhook,بند واجهة
+Set in Meta: /api/method/omnexa_ai_employee.api.whatsapp_webhook,Set in Meta: /api/method/omnexa_ai_employee.api.whatsapp_webhook
 Settings,الإعدادات
 Shortcut,اختصار
 SME Microfinance,التمويل متناهي الصغر
@@ -387,56 +397,59 @@ SME Retail Finance,تمويل المنشآت والتجزئة
 SMS,رسالة نصية
 Status,الحالة
 Stock,المخزون
-Store Name,مخزن الاسم
-Store Type,مخزن النوع
+Store Name,اسم مخزن
+Store Type,نوع مخزن
 Subcontract,مقاول باطن
 Submit,إرسال
 Supplier,المورد
 Supporting Attachment,مرفق داعم
 System,النظام
 System Manager,مدير النظام
-System Prompt,بند واجهة
+System Prompt,النظام مطالبة
 Task List,قائمة المهام
-Telegram,بند واجهة
-Temperature,بند واجهة
-Tesseract,بند واجهة
+Telegram,Telegram
+Temperature,Temperature
+Tenant (Customer),المستأجر (العميل)
+Tesseract,Tesseract
 This Month,هذا الشهر
 This Week,هذا الأسبوع
-Timeout (seconds),بند واجهة
+Timeout (seconds),Timeout (seconds)
 Timezone,المنطقة الزمنية
 Title,العنوان
 Today,اليوم
 ToDo,مهمة
-Tool,بند واجهة
-Top P,بند واجهة
+Tool,Tool
+Top P,أعلى P
+Total,الإجمالي
 Tourism,السياحة
 Trading,التجارة
 Trading & Manufacturing,التجارة والتصنيع
-Trading Distribution Order DocType not available.,بند واجهة
-Trading Van Sales Invoice DocType not available.,بند واجهة
+Trading Distribution Order DocType not available.,Trading Distribution Order Doc Type not available.
+Trading Van Sales Invoice DocType not available.,Trading Van Sales Invoice Doc Type not available.
 Trial Balance,ميزان المراجعة
-Unauthorized webhook call,بند واجهة
+Unauthorized webhook call,Unauthorized webhook call
 Unit,وحدة
 Unit Inventory,مخزون الوحدات
 Unit inventory & sales readiness,مخزون الوحدات وجاهزية البيع
 Unit inventory overview,نظرة عامة على مخزون الوحدات
 Unit Reservation,حجز وحدة
 Unit Reservation Register,سجل حجز الوحدات
-Unsupported provider type: {0},بند واجهة
+Unsupported provider type: {0},Unsupported provider type: {0}
 Update,تحديث
-Used when Ollama is reachable; auto-picked from installed models if missing,بند واجهة
+Used when Ollama is reachable; auto-picked from installed models if missing,Used when Ollama is reachable; auto-picked from installed models if missing
 User,مستخدم
 Vehicle Finance,تمويل المركبات
-vLLM,بند واجهة
-Voice,بند واجهة
+Verify,تحقق
+vLLM,v LLM
+Voice,Voice
 Warehouse,المستودع
-Weaviate,بند واجهة
-Web Chat,بند واجهة
-Webhook URL,URL — بند واجهة
-Webhook Verify Token,بند واجهة
-WhatsApp,بند واجهة
-WhatsApp Phone Number ID,ID — بند واجهة
-Work Order DocType not available.,بند واجهة
+Weaviate,Weaviate
+Web Chat,Web Chat
+Webhook URL,Webhook URL
+Webhook Verify Token,Webhook Verify Token
+WhatsApp,Whats App
+WhatsApp Phone Number ID,WhatsApp الهاتف الرقم ID
+Work Order DocType not available.,Work Order Doc Type not available.
 Workflow State,حالة سير العمل
 Workspace,مساحة العمل
 Workspaces,مساحات العمل

@@ -1,20 +1,7 @@
-# Omnexa AI Employee
+# omnexa_ai_employee
 
-Autonomous AI-powered employee for the ERPGENEX ecosystem.
+Frappe/ERPGenex application.
 
-## Capabilities
+**Documentation:** [`Docs/archive/apps/omnexa_ai_employee/`](../../Docs/archive/apps/omnexa_ai_employee/)
 
-- Hybrid local/cloud AI routing (Ollama, OpenAI, Claude, Gemini, DeepSeek, Kimi)
-- Multi-role agents: Sales, Support, Healthcare, Education, Tourism, Finance
-- OCR pipeline (PaddleOCR, Tesseract, EasyOCR, Azure OCR)
-- Voice-to-ERP workflow (Whisper / OpenAI STT)
-- Vector store integration (Qdrant, Weaviate, Chroma, pgvector)
-- Omnichannel channels (WhatsApp, Telegram, SMS, Email, Web Chat)
-- Ecosystem audit and gap analysis
-
-## Install
-
-```bash
-bench get-app https://github.com/ErpGenex/omnexa_ai_employee
-bench --site <site> install-app omnexa_ai_employee
-```
+Server docs vault: [`Docs/README.md`](../../Docs/README.md)
